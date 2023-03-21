@@ -1,0 +1,12 @@
+<div class="thumbnail">
+    <div class="caption">
+        <div><img src = "{{book.pictureUrl}}" width="280"height="330"></div>
+        <h4 class ="title">{{book.authors}}</h4>
+        <h4 style = "display:flex"><a [routerLink]="['/products', book._id]">{{book.title}}</a></h4>
+            <p>{{ book.year }}</p>{{book.price}}{{book.pictureurl}}
+    </div>
+  <div class="ratings">
+    <rating-stars [rating]="book.rating"></rating-stars>
+  </div>
+</div>
+<!--,book.authors,book.description, book.pictureUrl, book.price, book.title, book.year, book.rating]">{{ book.title}-->

@@ -1,0 +1,39 @@
+.caption {
+    
+    /*height:auto;*/
+    /*overflow: hidden;*/
+     /*display:flex;
+     flex-direction: column;
+     /*flex-wrap: wrap*/
+    }
+  
+  .caption h4 {
+    white-space:break-spaces;
+    margin-bottom:2px
+  }
+  
+  .thumbnail {
+    /*width:33%;*/
+    padding: 0;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+  }
+  
+  .thumbnail .caption/*-full*/ {
+    padding: 9px;
+    color: #333;
+  }
+  
+  .ratings {
+    color: #d17581;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .title{
+   white-space: break-spaces /*padding:10px*/
+  }
+  .caption h4 a{
+    /*max-width:100%*/
+  }
