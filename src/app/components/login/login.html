@@ -1,32 +1,20 @@
-<!--<form [formGroup] = "formModel" method ="POST" (ngSubmit) = "onSubmit()"> 
-    <label for="user">UserName</label>
-        <input type ="text" id="user" formControlName="user">
-    <label for="password">Password</label>
-        <input type ="text"id ='password"'  formControlName="password">
-    <input type = "submit" class=" btn btn-primary" value ="send">
-</form>-->
 
-    <div class = "wrapper">
-        <div style = "z-index:3;border:2px solid rgb(243, 242, 245);width:320px;font-size:12px;margin:100px auto;position:relative;top:150px;border:2px solid blue; background-color: white;">
+    <div class = "row">
+        <div class="log_wrapper">
             <div class = "lead">
-                <span style ="display:block;color:rgb(103, 31, 175);text-align: center;">Log in  or <a href = "/signin" style = "text-decoration: underline"> sign up</a></span>
+                <span class="log_header">Pease, log in  or <a style = "color:blue" href = "/signin"> sign up</a></span>
             </div>
             <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
-            <!--<div class = "form-group">
-                    <label for = "name">Name</label>
-                    <input type = "text" id = "name" formControlName ="name" required>
-                </div>-->
-                <div *ngIf = "notAuthenticated" class = "alert alert-danger">You're not authenticated yet</div>
-                <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
+                <div *ngIf = "notAuthenticated" class = "alert_span">Some problems occured with authentication.<br/>Check email or password; or sign up</div>
+                <div class = "form-group">
                     <label for = "email">Email</label>
                     <input type = "text" id = "email" formControlName ="email" required>
                 </div>
-                <div *ngIf = "this.formModel.value.email.errors">Fill the main</div>
-                <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
+                <div class = "form-group">
                     <label for = "password">Password</label>
                     <input type = "text" id = "password" formControlName ="password">
                 </div>
-                <input type = "submit" style = "margin:10px 125px 10px" value= "Submit" class = "btn btn-primary" required>
+                <input type = "submit" value= "Submit" class = "btn btn-primary submit_btn" required>
             </form>
         </div>
     </div>

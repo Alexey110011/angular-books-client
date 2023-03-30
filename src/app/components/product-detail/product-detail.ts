@@ -3,8 +3,8 @@ import { ActivatedRoute ,Router} from "@angular/router";
 import { FormGroup, FormControl, Validators} from "@angular/forms";
 import {Book, Review, BookService} from '../../services/bookService'
 import HomeComponent from "../home/home";
-import {LoginComponent} from"../login/login"
-import { Observable } from "rxjs";
+///import {LoginComponent} from"../login/login"
+//import { Observable } from "rxjs";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -35,7 +35,7 @@ reviews:any[]=[]*/
 /*getBookById(bookId:string){
     return this.books.find(p=>p.id===bookId)
 }*/book:any
-reviews:any/*[]=[]*///books:any
+reviews:Review[]/**/=[]//books:any*/
 isReviewHidden:boolean = true//true//reviews:Review[]
 formModel: FormGroup;
 bookid:any
@@ -48,17 +48,25 @@ newRating:number=0////
 newComment:string=''
 isHidden:boolean = true
 isAuthenticate:boolean=false//// //getReview:any
+fullLength:number = 20
+rest:number=20
+ratinChange(event:number){
+    this.rating = event
+}
 /*getReviewConc(bookId:string){
     return this.reviews.filter(r=>r.productId === this.bookId)
     console.log(this.bookId)
-}*/
+}*/calculateLength(){
+    this.rest = 20-this.formModel.value.reviewtext.length
+    console.log(this.rest)
+}
 constructor(route:ActivatedRoute, private bookService:BookService, private authService:AuthService, private router:Router ){
     //this.books = this.homeService.books
     this.bookId =  route.snapshot.params['bookId']
     this.formModel = new FormGroup({
         //'author':new FormControl('', Validators.required),
-        'rating':new FormControl('', Validators.minLength(5)),
-        'reviewtext':new FormControl('', Validators.required),
+        'rating':new FormControl('', Validators.minLength(1)),
+        'reviewtext':new FormControl('', [Validators.required, Validators.maxLength(20)])//,
         //'createdOn':new FormControl()
     }) /*this.bookAuthors = route.snapshot.params['bookAuthors']
     this.bookDescription = route.snapshot.params['bookDescription']
@@ -92,22 +100,22 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
         }
     
     addReview(){
-        //this.isHidden =true
-        //this.isReviewHidden=!this.isReviewHidden
-        //this.getAuthor()
-        //console.log(this.formModel.controls['author']/*, this.formModel.valid*/)
         this.bookid = this.bookId
-        //this.author = this.formModel.value.author
-        this.rating = this.formModel.value.rating
+        //this.rating = this.formModel.value.rating
         this.reviewtext= this.formModel.value.reviewtext
         this.createdOn = new Date()
-        this.bookService.addReviewsToDb(this.bookid,this.formModel.value)
-            .subscribe(value=>{this.reviews.push(value);console.log(value,this.reviews)})
+        this.bookService.addReviewsToDb(this.bookid,this.formModel.value, this.rating)
+            .subscribe(value=>{this.reviews.push(value[0]);console.log(value,this.reviews.length);
+                this.book.rating = this.averageRating(this.reviews)
+                console.log('This book rating',this.reviews.length,this.book.rating, this.rating)
+                this.bookService.updateRating(this.bookid,this.book.rating) 
+                //this.resetForm()   
+        })
         
-        console.log(this.isHidden)
-        this.book.rating = this.averageRating(this.reviews)
-        this.bookService.updateRating(this.bookid,/*Math.floor(*/this.book.rating)/*)*//*.subscribe(
-            {next:value=>console.log(value),
+        /*this.book.rating = this.averageRating(this.reviews)
+        console.log('This book rating',this.reviews.length,this.book.rating, this.rating)
+        this.bookService.updateRating(this.bookid,this.book.rating)*/
+            /*{next:value=>console.log(value),
             error:error=> console.error(error)})*/
         this.resetForm() 
     }
@@ -129,11 +137,12 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
     averageRating(reviews:Review[]){
         let sum  = reviews.reduce((average, review)=>average+Number(review.rating),0)
         console.log(sum)
-        return Math.floor(sum/reviews.length)
+        console.log(sum/reviews.length)
+        return Math.round((sum/reviews.length)*10/10).toFixed(1)/*Math.floor(sum/reviews.length)*/
     }
     resetForm(){
-        this.newRating = 0;
-        this.newComment = '';
+        this.newRating/*rating*/ = 0;
+        this./*newComment*/reviewtext = '';
         this.isReviewHidden = true
     }
     how(){
@@ -141,9 +150,9 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
         /*if(this.isAuthenticate)*/{this.isHidden =this.isAuthenticate} /*false*///this.isAuthenticated
         console.log(this.isHidden,localStorage)
     }
-    getAuthor(){
+    /*getAuthor(){
         this.authService.getAuthor().subscribe(value=>{this.author1= value;console.log(value)})
-    }
+    }*/
     /*cons(){
         console.log(f.value)
     }*/
@@ -158,6 +167,6 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
 /*console.log(this.reviews)
 this.reviews = this.getReviewConc(this.bookId)*/
 //}
-getUser(){this.authService.getUser()}
+//getUser(){this.authService.getUser()}
 }
 

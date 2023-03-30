@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
     forbiddenEmail:string=''
     regexpName:boolean=false
     regexpEmail:boolean=false
-
+    emptyInput:boolean = false
     shouldBeEqualTo = 'a'
     reactiveForm:FormGroup;
     getCustomValidator(){
@@ -95,8 +95,13 @@ export class SigninComponent implements OnInit {
         })*/
         
     //}
+    onInp(){
+        console.log(this.formModel.controls['name'].errors?.['required'])
+    }
     onSubmit(){
-        //this.checkUserByName()
+        this.onInp()
+        
+        console.log(100,this.emptyInput)
         console.log(this.forbiddenName,this.forbiddenEmail,this.formModel.status)
         if(this.forbiddenName ==''&&this.forbiddenEmail==''&&this.formModel.status==="VALID"/*this.formModel.valid*/){
         console.log(this.formModel.value)
@@ -104,6 +109,7 @@ export class SigninComponent implements OnInit {
         if(this.authService.isAuthenticated()){
             this.router.navigate([this.returnUrl]) }
     } else{
+        //if(this.formModel.controls['name'].errors?.['required']) {this.emptyInput=true}
         alert("something wrong!")
     }
         //this.checkUser(this.formModel.value.name)
@@ -185,9 +191,9 @@ export class SigninComponent implements OnInit {
         console.log(this.returnUrl)
     }
        
-        login(){
+        /*login(){
             
-            this.authService./*register(this.formModel.value)//*/validate(this.userEmail, this.userPassword)
+            this.authService./*register(this.formModel.value)//*//*validate(this.userEmail, this.userPassword)
             .subscribe(
                 {next:(response)=>{
                     this.authService.setUserInfo(response);console.log(this.formModel.value)
@@ -195,5 +201,5 @@ export class SigninComponent implements OnInit {
                     },
                 error:error=>console.log(error)
          })
-          }
+          }*/
 }

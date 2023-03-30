@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-**{
+
+*{
     margin:0 auto
 }
 .imgdesc *{
@@ -13,16 +14,37 @@ padding:5px
 height:300px;
 /*flex-direction: column;*/
 }
-
 /*.imgdesc:nth-child(2) *{
 display:block;color:blue;
 }*/
-.inner, .inner div {
-    display:block;
-    
+.inner/*, .inner div */{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left:0px;
+    margin-bottom:10px
+}
+.inner div {
+    margin:10px;
+    margin-left: 0px;
+}
+.description{
+    margin-left:10px;
+}
+.description div{
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+.item_wrapper{
+    padding-left:10px
 }
 label {
     color:blueviolet}
+.modal-body div{
+margin-bottom: 10px;
+}
 
 .wrapper{
     background-color: rgb(229, 224, 233);
@@ -32,6 +54,213 @@ label {
     position:relative;
     top:-100px;
 }
+.isCollapsed{
+    visibility:hidden;
+    position:absolute;
+    top:5px;
+    z-index:5;
+    right:0px;
+    color:wheat;
+    background-color:blue;
+    height: 30vh;
+    margin-top:20px;
+    /*animation-name: vis;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+    /*animation-name: menu_back;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;*/
+    }
+.isntCollapsed{
+    position:absolute;
+    top:5px;
+    right: -200px;
+    z-index: 5;
+    margin-top:45px;
+    visibility:visible;
+    color:wheat;
+    background-color:blue;
+    height: 30vh;
+    animation-name: menu;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
 
+.isntCollapsed ul li, .isCollapsed ul li{
+margin-bottom: 15px;
+list-style-type: none;
+margin-right: 15px;
+border-bottom:1px solid white
+}
+@keyframes menu{
+    from{
+    position:absolute;
+    top:5px;
+    right:-200px}
+    to {
+        position:absolute;
+        top:5px;
+        right:0px}  
+    }
+@keyframes menu_back{
+    from{
+        position: absolute;
+        top:5px;
+        right:0px
+    } to {position: absolute;
+        top:5px;
+        right:-200px
+    }
+}
+    @keyframes vis {
+        from{
+            visibility:hidden
+        } to {
+            visibility:visible ;
+        }
+    }
+
+.forward{
+    animation-name:menu;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.back{
+    animation-name:menu_back;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.short {
+    visibility: visible;
+    background-color: transparent;
+    border:none;
+   }
+ /*a{
+    color:white
+}*/
+.long{
+    visibility: hidden;
+    /*background-color: black;*/
+    color:white;
+    height:100%
+    
+}
+.long ul {
+    display:flex;
+    padding-top:14px;
+    justify-content: space-around;
+}
+.long ul li{
+    display: inline;
+    color:white
+    
+}
+.navbar-wrapper{
+    position:fixed;
+    z-index:4;
+    height:50px;
+    background-color:blue;
+    color:white;
+    width:100vw;
+    margin-bottom: 2px;
+}
+.logo {
+    padding-top: 14px;
+}
+.menu_toggle::after{
+content:"\2261";
+font-size: 2em;
+}
+.log_wrapper{
+    z-index:3;
+    border:2px solid rgb(243, 242, 245);
+    width:320px;font-size:12px;
+    margin:30px auto;
+    position:relative;
+    top:150px;
+    border:2px solid blue;
+    background-color: white
+}
+
+.log_header, .signup_header{
+    display:block;
+    color:rgb(103, 31, 175);
+    text-align: center;
+}
+.signup_wrapper{
+    z-index:3;
+    border:2px solid rgb(243, 242, 245);
+    width:320px;font-size:12px;
+    margin:30px auto;position:relative;
+    top:150px;border:2px solid blue;
+    background-color: white;
+}
+.forms{
+width:350px;
+border:2px solid blue;
+position:relative;
+top:60px
+}
+.form-group{
+    display:flex;
+    justify-content: space-between;
+    padding:8px 20px
+}
+.forms div{
+    width:350px;
+    display:flex; 
+    justify-content:space-between;
+    padding:8px 20px;
+    position: relative;
+    top:15px;
+}
+
+.forms div label{
+    margin-left:0;
+}
+.forms span {
+    margin-right:0;
+    display:block
+}
+.alert_span {
+    color:rgb(167,20,20);
+    padding:5px;
+    text-align: center;
+    margin: 5px auto;
+}
+.forms input, .forms select{
+    width:178px;
+    outline: none;
+}
+.forms textarea{
+    width:178px;
+    height:130px
+}
+.success_span{
+    color:green;
+    padding: 5px;
+    margin:5px auto;
+    text-align:center
+}
+.pos30{
+    position:absolute;
+    top:30px
+}
+input{
+    width:148px
+}
+.submit_btn{
+    margin:10px 125px 10px  
+}
+
+
+@media(min-width:768px){
+.short{
+    visibility:hidden
+}
+.long{
+    visibility: visible;
+}
+}
 
     

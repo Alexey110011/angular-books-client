@@ -1,9 +1,9 @@
-<div class="thumbnail">
-    <div class="caption">
-        <div><img src = "{{book.pictureUrl}}" width="280"height="330"></div>
+<div class="item_wrapper">
+    <div class="">
+        <div><img src = "{{book.pictureurl}}" width="220"height="300"></div>
         <h4 class ="title">{{book.authors}}</h4>
-        <h4 style = "display:flex"><a [routerLink]="['/products', book._id]">{{book.title}}</a></h4>
-            <p>{{ book.year }}</p>{{book.price}}{{book.pictureurl}}
+        <h4><a [routerLink]="['/products', book._id]">{{book.title}}</a></h4>
+            <p>{{ book.year }}</p>{{book.price}}
     </div>
   <div class="ratings">
     <rating-stars [rating]="book.rating"></rating-stars>

@@ -1,0 +1,28 @@
+<div>
+    <div  class ="row">
+        <div [hidden] = "isSearchFormHidden" class = "" style = "border:1px solid green; position:fixed;top:0px;left:20px;z-index:5;padding-bottom:0;box-shadow:2px 2px 2px gray"> 
+            <button (click) ="isSearchFormHidden=true" type = "button" class = "close">
+                <span aria-hidden = "true">x</span>
+            </button>
+            <div class= "form-group" style ="margin-bottom:0">
+                <select type ="text" class = "form-control" #slc>
+                    <option name = "search">Search by...</option>
+                    <option name = "authors">authors</option>
+                    <option name = "title" >title</option>
+                    <option name = "category">category</option>
+                </select>
+                <input placeholder ="Search..." type ="text" class = "form-control" [formControl] = "titleFilter">
+            </div>  
+        </div>
+    </div>
+</div>    
+
+<div class = "" style = "margin-top:80px;">
+    <div *ngIf = "(books | filter:slc.value:filterCriteria) as result" style = "position:relative;margin-left:10px;display:flex; flex-direction:row;flex-wrap:wrap;justify-content: flex-start;">
+        <span style = "position:absolute;top:-20px;left:0px;margin-left:20px;color:rgb(102, 95, 95)">{{result.length}} books found</span>
+        <div *ngFor = "let book of result" style = "margin-left:5px;margin-top:10px">
+            <auction-product-item [book] ="book"></auction-product-item>
+        </div>
+    </div>
+    <button (click) = "clearLocal()">Clear Local"</button>
+</div> 

@@ -1,42 +1,43 @@
-<div class = "row">
-    <div class = "col=-md-6 col-sm-12">
+<div class = "row" >
+    <div class = "signup_wrapper">
         <p class = "lead">
-            <a href = "/#login">Already a member? Please, log in</a>
+            <span class ="signup_header">Already a member? Please, <a style = "color:blue"href = "/#login">log in</a></span>
         </p>
         <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
-            <div class = "form-group">
+            <div class = "form-group"style="display:flex; justify-content: space-between;padding:8px 20px">
                 <label for = "name">Name</label>
                 <input type = "text" id = "name" formControlName ="name" required [(ngModel)] = "targetName" (input) = "checkingRegExpName()"(blur)="checkUserByName()">
             </div>
-            <!--<div *ngIf = "nameAlreadyExists"class = "alert alert-danger">This name is already exists!</div>-->
-            <div *ngIf="this.isTargetName" style= "position:relative;left:30px">
-                <span *ngIf = "this.regexpName" class  ="alert alert-danger"style="margin-top:0;padding-top:0" >Name <b>{{targetName}}</b>  is already exists</span>
-                <span *ngIf = "!this.regexpName" class = "alert alert-success">Name <b>{{targetName}}</b> is available</span>
-            </div>
-            <div class = "form-group">
+            <div *ngIf = "this.formModel.controls['name'].touched&&this.formModel.controls['name'].errors?.['required']" class = "alert_span">Fill the field</div>
+                <div *ngIf="this.isTargetName">
+                    <div *ngIf = "this.regexpName" class  ="alert_span">Name <b>{{targetName}}</b>  is already exists</div>
+                    <div *ngIf = "!this.regexpName" class = "success_span">Name <b>{{targetName}}</b> is available</div>
+                </div>
+            <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
                 <label for = "email">Email</label>
                 <input type = "text" id = "email" formControlName ="email" required [(ngModel)] = "targetEmail" (input) = "checkingRegExpEmail()"(blur)="checkUserByEmail()">
             </div>
-            <!--<div *ngIf = "emailAlreadyExists"class = "alert alert-danger">This email is already exists!</div>-->
-            <div *ngIf="this.isTargetEmail"style= "position:relative;left:30px"  >
-                <span *ngIf = "this.regexpEmail" class  ="alert alert-danger" >Email <b>{{targetEmail}}</b>  is already exists</span>
-                <span *ngIf = "!this.regexpEmail" class = "alert alert-success">Email <b>{{targetEmail}}</b> is available</span>
-            </div>
-            <div class = "form-group">
+            <div *ngIf = "this.formModel.controls['email'].touched&&this.formModel.controls['email'].errors?.['required']" class = "alert_span">Fill the field</div>
+            <div *ngIf="this.isTargetEmail">
+                <div *ngIf = "this.regexpEmail" class  ="alert_span">Email <b>{{targetEmail}}</b>  is already exists</div>
+                <div *ngIf = "!this.regexpEmail" class = "success_span">Email <b>{{targetEmail}}</b> is available</div>
+                </div>
+            <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
                 <label for = "password">Password</label>
                 <input type = "text" id = "password" formControlName ="password">
+                <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert alert-danger">Fill the field</div>
             </div>
-           <input type = "submit" value = "Submit" class = "btn btn-primary">
+           <input type = "submit" style = "margin:10px 125px 10px" value = "Submit" class = "btn btn-primary">
         </form>
     </div>
 </div>
-<form [formGroup] = "reactiveForm">
+<!--<form [formGroup] = "reactiveForm">
     <input type = "text" formControlName = "input">
     <button (click) ="changeToB()">Switch to B</button>
     valid:{{reactiveForm.get('input')}}
     <br>
     shouldBeEqualTo:{{shouldBeEqualTo}}
-</form>
+</form>-->
 <!--<input [formControl] = "formModel1" [(ngModel)] = "target" (input) = "checkingRegExp()" (blur) ="this.isTarget = false">
 <div *ngIf="this.isTarget">
     <span *ngIf = "this.regexpName" style  ="border:1px solid red; color:red">Name <b>{{target}}</b>  is already exists</span>

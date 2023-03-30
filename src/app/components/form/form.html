@@ -1,24 +1,53 @@
-<form [formGroup] = "formModel" (ngSubmit)="onSubmit()"  action = '/forms' method = "POST" enctype = "multipart/form-data">
-    <div><label for = "authors"> Authors</label>
-        <input type = "text" formControlName="authors" id ="authors"/></div>
-    <div><label for = "title"> Title</label>
-        <input type = "text" formControlName="title" id ="title"/></div>
-    <div><label for = "description"> Description</label>
-        <textarea formControlName="description" id ="description"></textarea></div>
-    <div><label for = "year"> Year</label>
-        <input type = "text" formControlName="year" id ="year"/></div>
-    <div><label for = "category"> Category</label>
-        <input type = "text" formControlName="category" id ="category"/></div>    
-    <div><label for = "pictureUrl"> PictureUrl</label>
-        <input type = "text" formControlName="pictureUrl" id ="pictureUrl"/></div>
-    <div><label for = "rating"> Rating</label>
-        <input type = "text" formControlName="rating" id ="rating"></div>
-    <div><label for = "price"> Price</label>
-        <input type = "text" formControlName="price" id ="price"/></div>
-    <div><label for = "shops"> Shops</label>
-        <input type = "text" formControlName="shops" id ="shops"/></div>
-<!--input type = "file" formControlName = "sampleFile" accept = "image"/>-->
-    <div><input type = "submit" class = "btn btn-primary"value ="Send"/></div>
+
+<form [formGroup] = "formModel" (ngSubmit)="onSubmit();form_add.resetForm()" class="forms" action = '/forms' method = "POST" enctype = "multipart/form-data" #form_add="ngForm">
+    <div>
+        <label for = "authors"> Author(s)</label>
+        <input type = "text" formControlName="authors" id ="authors"/>
+    </div>
+    <div>
+        <label for = "title"> Title</label>
+        <input type = "text" formControlName="title" id ="title"/>
+    </div>
+    <div>
+        <label for = "description" style="position:relative"> Description
+        <span *ngIf = "(rest<50&&rest>0)||rest==0" class = "success_span pos30"> Availible {{rest}} characters</span>
+        <span *ngIf = "rest<0" class = "alert_span pos30"> Maximum length reached</span>
+        </label>
+        <textarea formControlName="description" id ="description" (input) = "calculateLength()"></textarea>
+   </div>
+        
+    <div>
+        <label for = "year"> Year</label>
+        <input type = "text" formControlName="year" id ="year"/>
+    </div>
+    <div>
+        <label for = "category"> Category</label>
+        <select formControlName="category" id ="category">
+            <option *ngFor = "let c of categories" [value]="c">{{c}}</option>
+        </select>
+    </div>    
+    <div>
+        <label for = "pictureUrl"> PictureUrl</label>
+        <input type = "text" formControlName="pictureUrl" id ="pictureUrl"/>
+    </div>
+    <div>
+        <label for = "price"> Price</label>
+        <input type = "number" formControlName="price" id ="price"/>
+    </div>
+    <div>
+        <label for = "shops"> Shops</label>
+        <input type = "text" formControlName="shops" id ="shops">
+    </div>
+    <div *ngIf = "!formNotCompleted">Complete the form</div>
+    <div><input type = "submit" class = "btn btn-primary submit_btn" value ="Submit"/></div>
 </form>
-<button (click) = "checkLocal()">Check Local</button>
+<!--<button (click) = "checkLocal()">Check Local</button>
 <button (click) = "clearLocal()">Clear Local</button>
+<div class = "container">
+<button class = "btn btn-success" type = "button" data-toggle = "collapse" data-target = "#collapseExample" aria-expanded = "false" aria-controls = "#collapseExample">
+    Test Me
+  </button>
+  <div class = "collapse" id = "collapseExample">
+    Tasty
+  </div>
+</div>-->

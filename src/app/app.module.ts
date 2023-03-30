@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+
 import { AppComponent } from './app.component';
 import HomeComponent from './components/home/home';
 import NavbarComponent from './components/navbar/navbar';
@@ -33,6 +35,7 @@ import { AuthGuardService as AuthGuard} from './services/auth.guard.service';
   ],
   imports: [
     BrowserModule,
+    //NgbModule,
     /*AppRoutingModule/**/RouterModule.forRoot([
         {path:'', component:HomeComponent},
         {path:'products/:bookId'/*:bookAuthors/:bookDescription/:bookPictureUrl/:bookPrice/:bookTitle/:bookYear/:bookRating'*/,component:BookDetailComponent},

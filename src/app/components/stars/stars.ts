@@ -1,6 +1,4 @@
-//import { outputAst } from "@angular/compiler"
 import {Component, Input, Output, EventEmitter} from "@angular/core"
-
 @Component({
     selector:"rating-stars",
     templateUrl:"stars.html",
@@ -8,9 +6,9 @@ import {Component, Input, Output, EventEmitter} from "@angular/core"
 })
 
 export default class StarsComponent {
-//added
+
     private _rating:number=0
-    /*private*/ stars:boolean[]=[]
+    stars:boolean[]=[]
     private maxStars: number=5
     @Input() readonly:boolean= true
     @Input() get rating():number{
@@ -29,14 +27,4 @@ export default class StarsComponent {
         }
     }
 
-/* removed( count and number received from ancestor)
-    @Input() count:number=5
-    @Input() rating:number=0
-    stars:boolean[]=[]
-
-    ngOnInit(){
-        for( let i=0;i<this.count;i++){
-            this.stars.push(i>this.rating)
-        }
-    }*/
 }

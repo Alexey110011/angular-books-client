@@ -4,4 +4,11 @@ import {Component} from '@angular/core';
   selector: 'books-navbar',
   templateUrl: 'navbar.html'
 })
-export default class NavbarComponent {}
+
+export default class NavbarComponent {
+  toggleFunc(){
+    this.isToggled=!this.isToggled
+    console.log(this.isToggled)
+}
+isToggled:boolean=true
+}
