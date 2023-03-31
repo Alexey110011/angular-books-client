@@ -99,7 +99,7 @@ export class SigninComponent implements OnInit {
         console.log(this.formModel.controls['name'].errors?.['required'])
     }
     onSubmit(){
-        this.onInp()
+        //this.onInp()
         
         console.log(100,this.emptyInput)
         console.log(this.forbiddenName,this.forbiddenEmail,this.formModel.status)

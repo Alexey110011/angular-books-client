@@ -10,7 +10,7 @@
     </div>
     <div>
         <label for = "description" style="position:relative"> Description
-        <span *ngIf = "(rest<50&&rest>0)||rest==0" class = "success_span pos30"> Availible {{rest}} characters</span>
+        <span *ngIf = "(rest<500&&rest>0)||rest==0" class = "success_span pos30"> Availible {{rest}} characters</span>
         <span *ngIf = "rest<0" class = "alert_span pos30"> Maximum length reached</span>
         </label>
         <textarea formControlName="description" id ="description" (input) = "calculateLength()"></textarea>

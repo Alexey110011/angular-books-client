@@ -1,5 +1,5 @@
 import {Component} from "@angular/core"
-import { FormControl, FormGroup, FormArray, Validators } from "@angular/forms"
+import { FormControl, FormGroup, Validators } from "@angular/forms"
 import { BookService } from "src/app/services/bookService";
 
 @Component({
@@ -13,7 +13,7 @@ categories = ['frontend', 'backend', 'fullstack']
 formModel:FormGroup;
 formNotCompleted:boolean= true 
 rest:number=500
-
+mayClose:boolean= true
 constructor(private bookService:BookService){
     this.formModel = new FormGroup({
         'authors':new FormControl('', Validators.required),
@@ -32,6 +32,7 @@ onSubmit(){
         console.log(this.formModel.value)
         this.bookService.addBookToDb(this.formModel.value).subscribe(
         value=>console.log(value))
+        this.mayClose = false
         } else {
     this.formNotCompleted = false;
     }
@@ -44,7 +45,7 @@ clearLocal(){
     localStorage.clear()
 }
 calculateLength(){
-    this.rest = 50-this.formModel.value.description.length
+    this.rest = 500-this.formModel.value.description.length
     console.log(this.rest)
 }
 }
