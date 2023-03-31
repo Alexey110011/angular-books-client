@@ -39,7 +39,7 @@ export class AuthService{
         }
 
         public register(user:any){
-            return this.http.post<Token>('http://localhost:8000/register', user).subscribe(
+            return this.http.post<Token>('https://activities-server-db.herokuapp.com/register', user).subscribe(
                 {next:value=>{this.token = value.token;console.log(this.token);
                 this.saveToken(this.token);
                 console.log(window.atob(this.token.split('.')[1]));
@@ -60,7 +60,7 @@ export class AuthService{
         }
                 
         public login(user:any){
-            return this.http.post<Token>('http://localhost:8000/login', user).subscribe(
+            return this.http.post<Token>('https://activities-server-db.herokuapp.com/login', user).subscribe(
                 {next:value=>{this.token = value.token;console.log(this.token);
                     this.saveToken(this.token);
                     console.log(window.atob(this.token.split('.')[1]));
@@ -97,26 +97,26 @@ export class AuthService{
         )
     }*/
     public checkUserByName(name:any){
-        return this.http.post('http://localhost:8000/checkUserName', {name:name}/*, {'Content-Type':'application/json'}*/)/*.subscribe(
+        return this.http.post('https://activities-server-db.herokuapp.com/checkUserName', {name:name}/*, {'Content-Type':'application/json'}*/)/*.subscribe(
             {next:value=>{if(Array.isArray(value)&&value.length>0){console.log(`User array already exists!`, value.length)
                           }else{console.log('Okay')}},
                             error: error=> console.log(error)}
         )*/
     }
     public checkUserByEmail(email:any){
-        return this.http.post('http://localhost:8000/checkUserEmail', {email:email})
+        return this.http.post('https://activities-server-db.herokuapp.com/checkUserEmail', {email:email})
     }
 
     public checkRegExpName(value:string){
-        return this.http.post('http://localhost:8000/checkRegExpName',{reg:value})
+        return this.http.post('http://https://activities-server-db.herokuapp.com/checkRegExpName',{reg:value})
     }
 
     public checkRegExpEmail(value:string){
-        return this.http.post('http://localhost:8000/checkRegExpEmail',{reg:value})
+        return this.http.post('https://activities-server-db.herokuapp.com/checkRegExpEmail',{reg:value})
     }
 
     public checkRegExp(value:string){
-        return this.http.post('http://localhost:8000/checkRegExp',{reg:value})
+        return this.http.post('https://activities-server-db.herokuapp.com/checkRegExp',{reg:value})
     }
     //-------------------------------------------------------------------------------------------
    /* public getAuthor(){

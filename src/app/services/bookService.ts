@@ -50,12 +50,12 @@ export class Book {
                 map(res=>res)) 
         }*/
             getProductById(bookId:string):Observable<any>{
-                return this.http.get<Book>(`http://localhost:8000/products/${bookId}`, {responseType:'json'}).pipe(
+                return this.http.get<Book>(`https://activities-server-db.herokuapp.com/products/${bookId}`, {responseType:'json'}).pipe(
                 map(res=>res))
             }        
 
             getReviewsForBook(bookId:string):Observable<any[]>{ 
-                return this.http.get<Review[]>(`http://localhost:8000/products/${bookId}/reviews`, {responseType:'json'}).pipe(
+                return this.http.get<Review[]>(`https://activities-server-db.herokuapp.com/products/${bookId}/reviews`, {responseType:'json'}).pipe(
                 map(res=>res))
             }
 
@@ -67,7 +67,7 @@ export class Book {
             }*/
 
             getBooksFromDb():Observable<any>{
-                return this.http.get('http://localhost:8000', {responseType:'json'}).pipe(
+                return this.http.get('https://activities-server-db.herokuapp.com', {responseType:'json'}).pipe(
                 map(res=>res))
             }
 
@@ -88,7 +88,7 @@ export class Book {
             }       */
 
             addBookToDb(value:Book){
-                return this.http.post<Book>('http://localhost:8000/booksFromDb1',value,{responseType:'json'})/*.pipe(
+                return this.http.post<Book>('https://activities-server-db.herokuapp.com/booksFromDb1',value,{responseType:'json'})/*.pipe(
                     catchError(this.handleError('addBookToDb1',value));
                     )*/
                 }
@@ -106,7 +106,7 @@ export class Book {
                     }
                     const requestOption = {headers: new HttpHeaders(headerd)
                     }
-                    return this.http.post<Review[]>(`http://localhost:8000/products/${bookId}/addReview`, /*{*/value/*,rating:rating}*/, requestOption/* ,{responseType:'json'}*/)
+                    return this.http.post<Review[]>(`https://activities-server-db.herokuapp.com/products/${bookId}/addReview`, /*{*/value/*,rating:rating}*/, requestOption/* ,{responseType:'json'}*/)
                 }
 
                 updateRating1(bookId:string, rating:number){
@@ -121,7 +121,7 @@ export class Book {
 
                 updateRating(bookId:string, rating:number){
                     //return this.http.put(`http://localhost:/8000/products/${bookId}/addReview/updateRating`, {rating:rating}/*, {responseType:'json'}*/)
-                   return this.http.put(`http://localhost:8000/products/${bookId}/addReview/updateRating`,{rating:rating}, {responseType:'json'}).subscribe(value=>console.log(value))
+                   return this.http.put(`https://activities-server-db.herokuapp.com/products/${bookId}/addReview/updateRating`,{rating:rating}, {responseType:'json'}).subscribe(value=>console.log(value))
             }
     }
             

@@ -16,14 +16,14 @@ rest:number=500
 mayClose:boolean= true
 constructor(private bookService:BookService){
     this.formModel = new FormGroup({
-        'authors':new FormControl('', Validators.required),
-        'title':new FormControl('', Validators.required),
-        'description':new FormControl('',Validators.maxLength(500)),
+        'authors':new FormControl('', [Validators.required, Validators.maxLength(30)]),
+        'title':new FormControl('', [Validators.required, Validators.maxLength(75)]),
+        'description':new FormControl('',[Validators.maxLength(500), Validators.maxLength(500)]),
         'year':new FormControl(),
         'pictureUrl':new FormControl(),
         'category':new FormControl(''),
-        'price':new FormControl('',Validators.required),
-        'shops':new FormControl('', Validators.required)
+        'price':new FormControl('',[Validators.required, Validators.maxLength(7)])/*,
+        /*'shops':new FormControl('', Validators.required)*/
     })
 }
 onSubmit(){

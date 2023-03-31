@@ -3,6 +3,7 @@
     <div>
         <label for = "authors"> Author(s)</label>
         <input type = "text" formControlName="authors" id ="authors"/>
+        <div  *ngIf = "this.formModel.controls['authors'].errors?.['maxLength']">Maximum length exceeded</div>
     </div>
     <div>
         <label for = "title"> Title</label>
@@ -34,10 +35,10 @@
         <label for = "price"> Price</label>
         <input type = "number" formControlName="price" id ="price"/>
     </div>
-    <div>
+    <!--<div>
         <label for = "shops"> Shops</label>
         <input type = "text" formControlName="shops" id ="shops">
-    </div>
+    </div>-->
     <div *ngIf = "!formNotCompleted">Complete the form</div>
     <div><input type = "submit" class = "btn btn-primary submit_btn" value ="Submit"/></div>
 </form>
