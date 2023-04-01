@@ -108,7 +108,7 @@ export class AuthService{
     }
 
     public checkRegExpName(value:string){
-        return this.http.post('http://https://activities-server-db.herokuapp.com/checkRegExpName',{reg:value})
+        return this.http.post('https://activities-server-db.herokuapp.com/checkRegExpName',{reg:value})
     }
 
     public checkRegExpEmail(value:string){
