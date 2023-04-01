@@ -2,7 +2,7 @@ import {Component, Input, Output, EventEmitter} from "@angular/core"
 @Component({
     selector:"rating-stars",
     templateUrl:"stars.html",
-    styles:[`.starrating:{color: #d17581}`]
+    styles:[`.starrating{color: #d17581}`]
 })
 
 export default class StarsComponent {
