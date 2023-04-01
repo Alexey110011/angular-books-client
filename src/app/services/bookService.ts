@@ -67,7 +67,7 @@ export class Book {
             }*/
 
             getBooksFromDb():Observable<any>{
-                return this.http.get('https://activities-server-db.herokuapp.com', {responseType:'json'}).pipe(
+                return this.http.get('https://activities-server-db.herokuapp.com/m', {responseType:'json'}).pipe(
                 map(res=>res))
             }
 
