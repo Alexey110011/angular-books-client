@@ -25,11 +25,11 @@ clearLocal(){
 constructor(private bookService:BookService){
     
     this.bookService.getBooksFromDb()
-    .subscribe(
+    /*.subscribe(
         {next:value=>this.books = value,
         error:error=>console.log(error),
         complete:()=>console.log('Done')}
-    )
+    )*/
 
     this.titleFilter.valueChanges.pipe(
         debounceTime(100))
