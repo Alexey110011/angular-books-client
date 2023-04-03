@@ -72,7 +72,7 @@ export class Book {
             }*/
 
             getBooksFromDb(){
-                fetch('https://activities-server-db.herokuapp.com/book')
+                fetch('https://activities-server-db.herokuapp.com/m')
                 .then(response=>{response.json;console.log(response)})
                 .catch(error=>console.log(error))
                 
