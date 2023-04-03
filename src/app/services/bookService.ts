@@ -66,17 +66,17 @@ export class Book {
                 )
             }*/
 
-            /*getBooksFromDb1():Observable<any>{
-                return this.http.get('https://activities-server-db.herokuapp.com', {responseType:'json'}).pipe(
-                map(res=>res))
-            }*/
+            getBooksFromDb():Observable<any>{
+                return this.http.get('https://activities-server-db.herokuapp.com/m', {responseType:'json'}).pipe(
+                map(res=>console.log(res)))
+            }
 
-            getBooksFromDb(){
+            /*getBooksFromDb(){
                 fetch('https://activities-server-db.herokuapp.com/m')
                 .then(response=>{response.json();console.log(response.body)})
                 .catch(error=>console.log(error))
                 
-            }
+            }*/
             
             /*addBookToDb1(value:Book){
                 console.log(value)
