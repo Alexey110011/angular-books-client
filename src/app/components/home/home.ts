@@ -23,7 +23,7 @@ clearLocal(){
 }
 
 constructor(private bookService:BookService){
-    this.bookService.getBooksFromDb
+    this.bookService.getBooksFromDb().subscribe(res=>console.log(res))
     /*.subscribe(
         {next:value=>this.books = value,
         error:error=>console.log(error),
