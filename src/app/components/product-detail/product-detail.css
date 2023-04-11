@@ -1,0 +1,27 @@
+.book{
+    position:relative;
+    margin-left: 20px;
+    padding-top:55px
+}
+.head{
+    font-size: 17px; 
+    padding-top: 55px; 
+    margin-left: 10px;
+}
+.stars_wrapper{
+    display:inline-block
+}
+.stars {
+    font-size:15px;
+    color:rgb(233,46,71)
+}
+.descript {
+    text-indent: 20px;
+    max-width: 500px;
+    font-size: 0.7em;
+}
+.shop {
+    background-color:gray; 
+    color:white;
+    height:fit-content
+}

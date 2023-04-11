@@ -1,0 +1,10 @@
+<div *ngIf= "fullstack" style = "height:170px; padding:0"> 
+    <div *ngFor = "let item of fullstack; let slideIndex = index" class = "backend">
+        <a [routerLink] = "['/']"><img  *ngIf = "slideIndex === currentSlide"
+   [src] = "item.pictureurl"
+   class = ""
+   width="110"
+   height = "100%"
+        /></a>
+    </div>
+</div>

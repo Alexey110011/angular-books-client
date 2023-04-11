@@ -1,0 +1,36 @@
+/*@keyframes backend{
+    from{
+    visibility:hidden
+} to {
+    visibility:visible
+    
+}
+}*/
+.about {
+    padding-top:55px;
+    margin:0 auto;
+    overflow:hidden
+}/*
+@keyframes fr{
+    from{
+      
+        transform:translateX(0)
+    } to {
+        transform: translateX(-500%);
+    }
+}
+.fr{
+    position:absolute;
+    right:-110px;
+    animation-name:fr;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+.vis{
+    visibility:visible;
+}
+.hid{
+    visibility:hidden;
+}*/

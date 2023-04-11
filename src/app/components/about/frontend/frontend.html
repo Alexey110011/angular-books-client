@@ -1,0 +1,10 @@
+<div *ngIf ="frontend" [ngClass] = "'!fading'?'vis':'hid'" style = "position:relative;height:170px;padding:0;"> 
+    <div *ngFor = "let item of frontend; let slideIndex = index" class = "backend">
+        <a [routerLink] = "['/']"><img  *ngIf = "slideIndex === currentSlide"
+   [src] = "item.pictureurl"
+   class = ""
+   width="110"
+   height = "150"
+        /></a>
+    <div>
+</div>

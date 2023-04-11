@@ -43,17 +43,6 @@ export class AuthService{
                 {next:value=>{this.token = value.token;console.log(this.token);
                 this.saveToken(this.token);
                 console.log(window.atob(this.token.split('.')[1]));
-                //-------------------------------------------------------------------------------------------
-                   /* this.notAuthenticated = false
-                    this.notAuthenticatedEmitter.emit(this.notAuthenticated);
-                    this.returnUrl = this.route.snapshot.queryParams['returnUrl']
-                
-                    if(this.returnUrl){
-                        this.router.navigate([this.returnUrl])
-                    }else{
-                        this.router.navigate([""])}
-                    return true*/
-                    //-----------------------------------------------------------------------------------------
                 },              
                 error:error=>{console.log(error)}
             });
@@ -82,26 +71,8 @@ export class AuthService{
             ) 
         }
    
-    /*public setUserInfo(user:any){
-        let newItem = localStorage.setItem('userInfo',JSON.stringify(user))
-        console.log(localStorage)
-    }
-    public validate (email:string, password:string){
-        return this.http.post('/api/authenticate', {'username':email, 'password':password})
-    }*/
-
-    /*public getUser(){
-        return this.http.get('http://localhost:8000/getUser').subscribe(
-            {next:value=>console.log(value),
-            error: error=> console.log(error)}
-        )
-    }*/
     public checkUserByName(name:any){
-        return this.http.post('https://activities-server-db.herokuapp.com/checkUserName', {name:name}/*, {'Content-Type':'application/json'}*/)/*.subscribe(
-            {next:value=>{if(Array.isArray(value)&&value.length>0){console.log(`User array already exists!`, value.length)
-                          }else{console.log('Okay')}},
-                            error: error=> console.log(error)}
-        )*/
+        return this.http.post('https://activities-server-db.herokuapp.com/checkUserName', {name:name})
     }
     public checkUserByEmail(email:any){
         return this.http.post('https://activities-server-db.herokuapp.com/checkUserEmail', {email:email})
@@ -118,16 +89,5 @@ export class AuthService{
     public checkRegExp(value:string){
         return this.http.post('https://activities-server-db.herokuapp.com/checkRegExp',{reg:value})
     }
-    //-------------------------------------------------------------------------------------------
-   /* public getAuthor(){
-        const tok = this.getToken()
-                    const headerd = {
-                        'Authorization':`Bearer ${tok}`/*eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE1ZGMwYWUyZmExYWZjYjdkZjEwYTYiLCJlbWFpbCI6ImFsZXhleTExQGNvbSIsIm5hbWUiOiJBbGV4ZXkxMSIsImV4cCI6MTY3OTc1OTQ3OSwiaWF0IjoxNjc5MTU0Njc5fQ.Jpszvl2J5jHssMAOIvDQoDijXCswzDnpRMgyt6j_MnU',*/
-                        /*'Access-Control-Allow-Headers':'Content-Type',
-                        'Content-Type':'application/json',
-                    }
-                    const requestOption = {headers: new HttpHeaders(headerd)
-                    }
-        return this.http.get('http://localhost:8000/getAuthor', requestOption)
-    }*/
+   
 }

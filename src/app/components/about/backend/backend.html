@@ -1,0 +1,11 @@
+<div *ngIf= "backend" style = "height:170px;"> 
+    <div *ngFor = "let item of backend; let slideIndex = index" class = "backend">
+       <a [routerLink] = "['/']"><img  *ngIf = "slideIndex === currentSlide"
+   [src] = "item.pictureurl"
+   class = ""
+   width="110"
+   height = "150"
+        />
+       </a>
+    </div>
+</div>

@@ -48,8 +48,8 @@ newRating:number=0////
 newComment:string=''
 isHidden:boolean = true
 isAuthenticate:boolean=false//// //getReview:any
-fullLength:number = 20
-rest:number=20
+fullLength:number = 500
+rest:number=500
 ratinChange(event:number){
     this.rating = event
 }
@@ -57,7 +57,7 @@ ratinChange(event:number){
     return this.reviews.filter(r=>r.productId === this.bookId)
     console.log(this.bookId)
 }*/calculateLength(){
-    this.rest = 20-this.formModel.value.reviewtext.length
+    this.rest = 500-this.formModel.value.reviewtext.length
     console.log(this.rest)
 }
 constructor(route:ActivatedRoute, private bookService:BookService, private authService:AuthService, private router:Router ){
@@ -68,14 +68,8 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
         'rating':new FormControl('', Validators.minLength(1)),
         'reviewtext':new FormControl('', [Validators.required, Validators.maxLength(20)])//,
         //'createdOn':new FormControl()
-    }) /*this.bookAuthors = route.snapshot.params['bookAuthors']
-    this.bookDescription = route.snapshot.params['bookDescription']
-    this.bookPictureUrl = route.snapshot.params['bookPictureUrl']
-    this.bookPrice = route.snapshot.params['bookPrice']
-    this.bookTitle = route.snapshot.params['bookTitle']
-    this.bookYear = route.snapshot.params['bookYear']
-    this.bookRating = route.snapshot.params['bookRating']*/
-    //this.review = route.snapshot.params['review']/*const bookSpread = {...this.bookDescription}*/
+    }) 
+
     console.log(this.bookId)
         bookService.getProductById(this.bookId)
         .subscribe(
@@ -111,13 +105,7 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
                 this.bookService.updateRating(this.bookid,this.book.rating) 
                 //this.resetForm()   
         })
-        
-        /*this.book.rating = this.averageRating(this.reviews)
-        console.log('This book rating',this.reviews.length,this.book.rating, this.rating)
-        this.bookService.updateRating(this.bookid,this.book.rating)*/
-            /*{next:value=>console.log(value),
-            error:error=> console.error(error)})*/
-        this.resetForm() 
+            this.resetForm() 
     }
     setRating(){
         this.bookService.updateRating(this.bookid,5/*this.book.rating*/)/*.subscribe(
@@ -147,26 +135,8 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
     }
     how(){
         this.isAuthenticate = this.authService.isAuthenticated()
-        /*if(this.isAuthenticate)*/{this.isHidden =this.isAuthenticate} /*false*///this.isAuthenticated
+        {this.isHidden =this.isAuthenticate}
         console.log(this.isHidden,localStorage)
     }
-    /*getAuthor(){
-        this.authService.getAuthor().subscribe(value=>{this.author1= value;console.log(value)})
-    }*/
-    /*cons(){
-        console.log(f.value)
-    }*/
-//ngOnInit() {
-    /*this.bookService.getReviews
- .subscribe(
-    {next:(result:any)=>{
-        this.reviews = result},
-        error:error=>console.log(error)
     }
- )*/
-/*console.log(this.reviews)
-this.reviews = this.getReviewConc(this.bookId)*/
-//}
-//getUser(){this.authService.getUser()}
-}
 

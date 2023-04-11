@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-//import { BookService } from '../../services/bookService';
 @Component({
   selector: 'auction-product-item',
   styleUrls:['product-item.css'],
@@ -7,6 +6,6 @@ import {Component, Input} from '@angular/core';
   })
 export default class ProductItemComponent {
   
-  @Input() book: any//Product;
+  @Input() book: any
  
 }

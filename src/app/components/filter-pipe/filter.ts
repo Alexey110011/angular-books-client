@@ -3,7 +3,7 @@ import {Pipe, PipeTransform } from '@angular/core'
 @Pipe({name:'filter'})
 
 export class FilterPipe implements PipeTransform {
-    transform(list:any[], filterByField:string, filterValue: string):any{
+    transform(list:any[], filterByField:string | null, filterValue: string):any{
         if(!filterByField||!filterValue){
             return list
         };

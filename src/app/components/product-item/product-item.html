@@ -1,12 +1,11 @@
-<div class="item_wrapper">
-    <div class="">
-        <div><img src = "{{book.pictureurl}}" width="220"height="300"></div>
+<div class="thumbnail item_wrapper">
+    <div>
+        <div><a [routerLink]="['/products', book._id]"><img src = "{{book.pictureurl}}" width="220"height="300"></a></div>
         <h4 class ="title">{{book.authors}}</h4>
-        <h4><a [routerLink]="['/products', book._id]">{{book.title}}</a></h4>
-            <p>{{ book.year }}</p>{{book.price}}
+        <h4>{{book.title}}</h4>
+            <p><b>BYN {{ book.price }}</b></p>
     </div>
   <div class="ratings">
     <rating-stars [rating]="book.rating"></rating-stars>
-  </div>
+  </div >
 </div>
-<!--,book.authors,book.description, book.pictureUrl, book.price, book.title, book.year, book.rating]">{{ book.title}-->

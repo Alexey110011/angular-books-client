@@ -1,9 +1,43 @@
-.slide-image{
-    width:100%
+@font-face{
+    font-family:"regular1";
+    src:url('../../../assets/fonts/Inter-Regular.ttf')
 }
-.carousel-holder{
-margin-bottom:30px
+.vis input{
+    display:inline-block;
+    margin:0 10px
+    
 }
-.carousel-control,.item {
-    border-radius:4px
+.search {
+    background-color:rgb(79, 204, 63);
+    color:white;
+    padding:5px;
+    width:300px;
+    margin:0 auto;
+    margin-top:50px;
+    position:absolute;
+    top:10px;
+    left:7%;
+    right:7%;
+    z-index:2;
+    box-shadow:5px 5px gray
+}
+.results{
+    position:absolute;
+    top:-20px;
+    left:30%;
+    right:30%;
+    color:rgb(102, 95, 95);
+    text-align:center;
+    font-size: 16px;
+}
+.books{
+    font-family: 'regular1';
+    position:relative;
+    top:80px;
+    margin-left:10px;
+    padding-left:10px;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content: flex-start
 }

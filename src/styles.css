@@ -1,28 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style file */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@font-face{
+    font-family:"regular1";
+    src:url('../src/assets/fonts/Inter-Regular.ttf')
+}
 
 *{
-    margin:0 auto
+    margin:0 auto;
+    font-family: 'regular1';
 }
-.imgdesc *{
-display:inline-block;
-white-space:nowrap;
-vertical-align: top;
-padding:5px
-}
-.imgdescinfo{
-height:300px;
-/*flex-direction: column;*/
-}
-/*.imgdesc:nth-child(2) *{
-display:block;color:blue;
-}*/
-.inner/*, .inner div */{
+
+.inner{
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left:0px;
     margin-bottom:10px
 }
 .inner div {
@@ -31,17 +23,16 @@ display:block;color:blue;
 }
 .description{
     margin-left:10px;
+    font-size: 16px;
 }
-.description div{
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    margin-left: 5px;
-}
+
 .item_wrapper{
-    padding-left:10px
+    padding-left:10px;
+    margin-bottom:20px
 }
 label {
     color:blueviolet}
+
 .modal-body div{
 margin-bottom: 10px;
 }
@@ -56,20 +47,17 @@ margin-bottom: 10px;
 }
 .isCollapsed{
     visibility:hidden;
-    position:absolute;
+    position:fixed;
     top:5px;
+    right:0;
     z-index:5;
     right:0px;
     color:wheat;
-    background-color:blue;
-    height: 30vh;
+    background-color:black;
+    opacity:0.8;
+    height: 35vh;
     margin-top:20px;
-    /*animation-name: vis;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-    /*animation-name: menu_back;
-    animation-duration: 0.6s;
-    animation-fill-mode: forwards;*/
+    font-size: 18px;
     }
 .isntCollapsed{
     position:absolute;
@@ -79,8 +67,10 @@ margin-bottom: 10px;
     margin-top:45px;
     visibility:visible;
     color:wheat;
-    background-color:blue;
-    height: 30vh;
+    background-color:black;
+    opacity:0.8;
+    height: 35vh;
+    font-size:16px;
     animation-name: menu;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -90,7 +80,10 @@ margin-bottom: 10px;
 margin-bottom: 15px;
 list-style-type: none;
 margin-right: 15px;
-border-bottom:1px solid white
+border-bottom:1px solid white;
+}
+.isntCollapsed a, .isCollapsed a{
+    font-size: 18px;
 }
 @keyframes menu{
     from{
@@ -101,6 +94,11 @@ border-bottom:1px solid white
         position:absolute;
         top:5px;
         right:0px}  
+    }
+    .faded{
+        background-color: rgba(54, 46, 46, 0.623);
+        opacity:1;
+        height:100vh;    
     }
 @keyframes menu_back{
     from{
@@ -120,57 +118,56 @@ border-bottom:1px solid white
         }
     }
 
-.forward{
-    animation-name:menu;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-.back{
-    animation-name:menu_back;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
 .short {
     visibility: visible;
     background-color: transparent;
     border:none;
    }
- /*a{
-    color:white
-}*/
+ .search1{
+    color:white;
+    font-size: 20px;
+    margin-top: 15px;
+    cursor:pointer
+ }
+
 .long{
     visibility: hidden;
-    /*background-color: black;*/
     color:white;
-    height:100%
-    
 }
-.long ul {
-    display:flex;
+.navbar-wrapper ul {
     padding-top:14px;
-    justify-content: space-around;
+    width:500px;
+    margin-left:100px
 }
-.long ul li{
-    display: inline;
-    color:white
-    
-}
+
+
 .navbar-wrapper{
     position:fixed;
     z-index:4;
     height:50px;
-    background-color:blue;
+    background-color:rgb(79, 204, 63);
     color:white;
-    width:100vw;
+    width:100%;
     margin-bottom: 2px;
+    padding-top:10px;
+    vertical-align: middle;
+}
+.navbar-wrapper div, .navbar-wrapper ul {
+    display:inline;
+    padding-top:20px
+}
+
+.navbar-wrapper ul li{
+    display:inline;
+    margin-right:20px
+
 }
 .logo {
-    padding-top: 14px;
+    margin:0 15px;
+    font-style: italic;
+    font-size: 20px;
 }
-.menu_toggle::after{
-content:"\2261";
-font-size: 2em;
-}
+
 .log_wrapper{
     z-index:3;
     border:2px solid rgb(243, 242, 245);
@@ -195,65 +192,59 @@ font-size: 2em;
     top:150px;border:2px solid blue;
     background-color: white;
 }
-.forms{
-width:350px;
-border:2px solid blue;
-position:relative;
-top:60px
-}
-.form-group{
-    display:flex;
-    justify-content: space-between;
-    padding:8px 20px
-}
-.forms div{
-    width:350px;
-    display:flex; 
-    justify-content:space-between;
-    padding:8px 20px;
-    position: relative;
-    top:15px;
-}
-
-.forms div label{
-    margin-left:0;
-}
-.forms span {
-    margin-right:0;
-    display:block
-}
-.alert_span {
-    color:rgb(167,20,20);
-    padding:5px;
-    text-align: center;
-    margin: 5px auto;
-}
-.forms input, .forms select{
-    width:178px;
-    outline: none;
-}
-.forms textarea{
-    width:178px;
-    height:130px
-}
-.success_span{
-    color:green;
-    padding: 5px;
-    margin:5px auto;
-    text-align:center
-}
-.pos30{
-    position:absolute;
-    top:30px
-}
-input{
-    width:148px
-}
 .submit_btn{
     margin:10px 125px 10px  
 }
+.search{
+ position:absolute;
+ top:0px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ border: 1px solid blue;
+ z-index:2
+}
 
+.search div{
+    display:flex;
+    margin-bottom: 3px;
+}
+.search:nth-child(2){
+    display: flex;
+    justify-content:space-between
 
+}
+
+.vis{
+    visibility: visible;
+}
+.hid{
+    visibility:hidden;
+}
+
+.head{
+    font-size:16px;
+    padding-top: 5px; 
+}
+.descript {
+    text-indent: 20px;
+    max-width: 500px;
+    font-size: 12px;
+}
+.descript_{
+    font-size: 14px;
+}
+
+.book{
+    position:relative;
+    margin-left: 20px;
+    padding-top:55px
+}
+.form_group{
+    display:flex; 
+    justify-content: space-between;
+    padding:8px 20px
+}
 @media(min-width:768px){
 .short{
     visibility:hidden
@@ -261,6 +252,17 @@ input{
 .long{
     visibility: visible;
 }
+.isntCollapsed{
+    visibility: hidden;
+}
+}
+.title{
+    font-size:16px
+    ;
+}
+@media(max-width:768px){
+.navbar-wrapper ul{
+        display:none
+}
 }
 
-    

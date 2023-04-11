@@ -2,6 +2,7 @@ import {Component} from '@angular/core'
 import {BookService} from '../../services/bookService'
 import {debounceTime} from 'rxjs/operators'
 import { FormControl } from '@angular/forms'
+import {SearchService} from '../../services/searchService'
 
 @Component({
     selector:'home',
@@ -10,7 +11,7 @@ import { FormControl } from '@angular/forms'
 })
     
 export default class HomeComponent{
-isSearchFormHidden:boolean = false
+
 books:any
 titleFilter:FormControl = new FormControl()
 filterCriteria:string =''
@@ -22,7 +23,7 @@ clearLocal(){
     localStorage.clear()
 }
 
-constructor(private bookService:BookService){
+constructor(private bookService:BookService,private searchService:SearchService ){
     this.bookService.getBooksFromDb()
     .subscribe(
         {next:value=>this.books = value,
@@ -38,4 +39,7 @@ constructor(private bookService:BookService){
             complete:()=>console.log('Done')}
             )
     }
+    get isSearchVisible():boolean{
+        return this.searchService.isSearchVisible 
+    }   
 }

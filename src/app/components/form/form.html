@@ -1,13 +1,13 @@
-
 <form [formGroup] = "formModel" (ngSubmit)="onSubmit();form_add.resetForm()" class="forms" action = '/forms' method = "POST" enctype = "multipart/form-data" #form_add="ngForm">
     <div>
         <label for = "authors"> Author(s)</label>
-        <input type = "text" formControlName="authors" id ="authors"/>
-        <div  *ngIf = "this.formModel.controls['authors'].errors?.['maxLength']">Maximum length exceeded</div>
+        <input type = "text" formControlName="authors" id ="authors" (blur) = "showLength()"/>
+        <span  *ngIf = "this.formModel.value.authors&&this.formModel.value.authors.length>30" class ="alert_span" style = "display:block;position: absolute;top:22px;left:140px;font-size:14px;">Maximum length exceeded</span>
     </div>
     <div>
         <label for = "title"> Title</label>
         <input type = "text" formControlName="title" id ="title"/>
+        <span  *ngIf = "this.formModel.value.title&&this.formModel.value.title.length>70" class ="alert_span" style = "display:block;position: absolute;top:22px;left:140px;font-size:14px;">Maximum length exceeded</span>
     </div>
     <div>
         <label for = "description" style="position:relative"> Description
@@ -29,18 +29,25 @@
     </div>    
     <div>
         <label for = "pictureUrl"> PictureUrl</label>
-        <input type = "text" formControlName="pictureUrl" id ="pictureUrl"/>
+        <input type = "text" formControlName="pictureUrl" id ="pictureUrl"placeholder  = "https://...">
     </div>
     <div>
         <label for = "price"> Price</label>
         <input type = "number" formControlName="price" id ="price"/>
     </div>
     <!--<div>
-        <label for = "shops"> Shops</label>
-        <input type = "text" formControlName="shops" id ="shops">
+        <label for = "shops"> Shop</label>
+        <input type = "text" formControlName="shop1" id ="shops" (focus)="inputInfo()" (blur)="inputInfo()">
+        <span *ngIf ="shop" style = "font-size: 11px;color:blue;position:absolute;top: 35px;">Please, provide a name or addres of the shop.<br/> We'll provide a photo later</span>
+    </div>
+    <div>
+        <label for = "shops"> Shop</label>
+        <input type = "text" formControlName="shop2" id ="shops">
+        <span *ngIf ="shop" style = "font-size: 11px;color:blue;position:absolute;top: 35px;">Please, provide a name or addres of the shop.<br/> We'll provide a photo later</span>
     </div>-->
-    <div *ngIf = "!formNotCompleted">Complete the form</div>
-    <div><input type = "submit" class = "btn btn-primary submit_btn" value ="Submit"/></div>
+    
+    <div *ngIf = "!formNotCompleted" style = "justify-content: center;">Complete the form</div>
+    <div><input type = "submit" class = "btn btn-primary" value ="Submit"/></div>
 </form>
 <!--<button (click) = "checkLocal()">Check Local</button>
 <button (click) = "clearLocal()">Clear Local</button>

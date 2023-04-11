@@ -1,0 +1,50 @@
+
+
+<div style = "margin-left:10%">
+<div *ngIf ="books" class = "about"><!--
+    <div class = "frontend_header">Frontend</div>
+   <div *ngFor = "let item of frontend; let slideIndex = index"class = "frontend">
+       <img  *ngIf = "slideIndex === currentSlide"
+       [src] = "item.pictureurl"
+       class = ""
+       width="110"
+       height = "150"
+       />
+    </div>
+    
+
+    <button class = "control prev" (click)  ="onPreviousClick()">
+        <span class  = "arrow left"></span>
+    </button>
+    <button class = "control next" (click)  ="onNextClick()">
+        <span class = "arrow right"></span>
+    </button>
+    
+   <div *ngFor = "let item of backend; let slideIndex = index" class = "backend" style = "position:relative; top:150px">"
+        <img  *ngIf = "slideIndex === currentSlide"
+       [src] = "item.pictureurl"
+       class = ""
+       width="110"
+       height = "150"
+            />
+    </div>
+    <frontend [frontend]  = "frontend"></frontend> 
+    <backend [backend] = "backend"></backend>
+
+<div *ngFor = "let item of fullstack; let slideIndex = index" class = "backend" style = "position:relative; top:150px">"
+    <img  *ngIf = "slideIndex === currentSlide"
+   [src] = "item.pictureurl"
+   class = ""
+   width="110"
+   height = "150"
+        />
+</div>-->
+<div>
+<div><span class = "badge" style = "background-color: red;" >Frontend</span>Frontend</div>    
+    <frontend [frontend]  = "frontend"></frontend>  
+<div class = "second badge"> Backend</div>
+    <backend [backend] = "backend"></backend>
+<div class = "third badge" style = "background-color: red;" > Fullstack</div>
+<fullstack [fullstack] = "fullstack"></fullstack>
+</div>
+</div>
