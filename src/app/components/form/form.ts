@@ -14,19 +14,18 @@ categories = ['frontend', 'backend', 'fullstack']
 formModel:FormGroup;
 formNotCompleted:boolean= true 
 rest:number=500
-//mayClose:boolean= true
 constructor(private bookService:BookService){
     this.formModel = new FormGroup({
-        'authors':new FormControl('', [Validators.required, Validators.maxLength(30)]),
+        'authors':new FormControl('', [Validators.required, Validators.maxLength(100)]),
         'title':new FormControl('', [Validators.required, Validators.maxLength(75)]),
         'description':new FormControl('',[Validators.maxLength(500), Validators.maxLength(500)]),
         'year':new FormControl(),
         'pictureUrl':new FormControl(),
         'category':new FormControl(''),
-        'price':new FormControl('',[Validators.required, Validators.maxLength(7)])/*,
-        /*'shops':new FormControl('', Validators.required)*/
+        'price':new FormControl('',[Validators.required, Validators.maxLength(7)])
     })
 }
+
 showLength(){
     console.log(this.formModel.controls['authors'].errors)
 }
@@ -43,12 +42,6 @@ onSubmit(){
     }
 }
 
-/*checkLocal(){
-    console.log(localStorage)
-}
-clearLocal(){
-    localStorage.clear()
-}*/
 calculateLength(){
     this.rest = 500-this.formModel.value.description.length
     console.log(this.rest)

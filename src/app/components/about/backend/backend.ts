@@ -11,12 +11,6 @@ export default class BackendComponent implements OnInit{
 currentSlide:number = 0  
 
 constructor(){}
-
-    /*onPreviousClick(){
-        const previous = this.currentSlide-1 
-        this.currentSlide = previous<0?this.backend.length-1:previous
-
-    }*/
     onNextClick(){
         const next = this.currentSlide+1 
         this.currentSlide = next===this.backend.length-1?0:next
@@ -30,10 +24,7 @@ constructor(){}
         )
         
     }
-    
-    /*goToSlide(slideIndex:number){
-        this.currentSlide = slideIndex
-    }*/
+     
 }
 
 

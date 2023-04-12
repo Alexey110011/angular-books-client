@@ -29,10 +29,7 @@
           </div>
     </div>
 </div>
-  
-    <!--<button (click) = "getUser()" style = "color:red">Get User</button>-->
-    <!--<div class="text-right">-->
-
+     
   <div>
     <button (click) = "leaveAReview()" class="btn btn-success btn-green">Leave a review</button> <span>  {{reviews.length}} review(s)</span>
     <div [hidden] = "isReviewHidden" class = "col-xs-12 col-lg-6" style="position:absolute; top:0px;left:-10px;background-color:transparent; height:100%;width:100vw;z-index:2;opacity:1">
@@ -43,7 +40,7 @@
             <span class ="sr-only">Close</span>
             </button>
             <h4 id = "modalLabel" class = "modal-title" style = "color:white">Add your review for {{book.title}}</h4>
-        </div><form [formGroup] = "formModel" (submit) = "addReview()">
+        </div><form [formGroup] = "formModel" (submit) = "addReview();form_add.resetForm()" #form_add = "ngForm">
           <div>
             <input [hidden] ="true" class = "col-xs-4 col-sm-4 col-md-4" style = "border-radius: 5px" type= "number" id ="rating" name = "rating" formControlName ="rating" [(ngModel)] = "rating">
             <span [hidden]  = "!formModel.hasError('minLength', 'minLength')">Enter requires</span>
@@ -51,8 +48,7 @@
           <div>
               <rating-stars [(rating)] = "newRating" (ratingChange) = ratinChange($event) [readonly] = "false" class = "large" style = "color:rgb(204, 233, 73)" ></rating-stars>
           </div>
-          <!--<label for = "review" class = "control-label" style="display:block">Review</label>          -->
-          <div>
+           <div>
             <textarea class = "form-control col-xs-10 col-sm-6" id = "review" formControlName = "reviewtext" rows ="10" required (input) = "calculateLength()"></textarea>
           </div>
           <div *ngIf = "rest>0||rest==0" class = "alert alert-success"> Availible {{rest}} characters</div>
@@ -64,7 +60,6 @@
         
       </div>
   </div>
-  
 </div>
 
 <div class = 'row '*ngFor = "let review of reviews">

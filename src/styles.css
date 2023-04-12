@@ -245,6 +245,23 @@ border-bottom:1px solid white;
     justify-content: space-between;
     padding:8px 20px
 }
+
+.alert_span, .success_span{
+    position:relative;
+    top:15px;
+    left:50px;
+    font-size: 12px;
+}
+.alert_span{
+    color:rgb(233,46,71);
+}
+.success_span{
+    color:green
+}
+.pad{
+    padding-right: 10px
+
+}
 @media(min-width:768px){
 .short{
     visibility:hidden

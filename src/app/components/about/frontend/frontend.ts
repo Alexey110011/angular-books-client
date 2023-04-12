@@ -9,7 +9,7 @@ export default class BackendComponent implements OnInit{
 
 @Input() frontend:any[]=[]
 currentSlide:number = 0  
-fading:boolean = false
+
 constructor(){}
 
     onNextClick(){
@@ -24,8 +24,5 @@ constructor(){}
             this.onNextClick()},2000
         )
     }
-    
-    /*goToSlide(slideIndex:number){
-        this.currentSlide = slideIndex
-    }*/
+     
 }
