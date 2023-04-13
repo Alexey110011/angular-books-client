@@ -252,6 +252,7 @@ border-bottom:1px solid white;
     font-size: 12px;
 }
 .login{
+    position:relative;
     top:-10px;
     left:-30px
 }
