@@ -4,7 +4,7 @@
             <span class ="signup_header">Already a member? Please, <a style = "color:blue" href = "/#login">log in</a></span>
         </p>
         <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
-            <div class = "form-group"style="display:flex; justify-content: space-between;padding:8px 20px">
+            <div class = "form-group">
                 <label for = "name">Name</label>
                 <input type = "text" id = "name" formControlName ="name" required [(ngModel)] = "targetName" (input) = "checkingRegExpName()"(blur)="checkUserByName()">
             </div>
@@ -13,7 +13,7 @@
                     <div *ngIf = "this.regexpName" class  ="alert_span">Name <b>{{targetName}}</b>  is already exists</div>
                     <div *ngIf = "!this.regexpName" class = "success_span">Name <b>{{targetName}}</b> is available</div>
                 </div>
-            <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
+            <div class = "form-group">
                 <label for = "email">Email</label>
                 <input type = "text" id = "email" formControlName ="email" required [(ngModel)] = "targetEmail" (input) = "checkingRegExpEmail()"(blur)="checkUserByEmail()">
             </div>
@@ -22,7 +22,7 @@
                 <div *ngIf = "this.regexpEmail" class  ="alert_span">Email <b>{{targetEmail}}</b>  is already exists</div>
                 <div *ngIf = "!this.regexpEmail" class = "success_span">Email <b>{{targetEmail}}</b> is available</div>
                 </div>
-            <div class = "form-group" style="display:flex; justify-content: space-between;padding:8px 20px">
+            <div class = "form-group">
                 <label for = "password">Password</label>
                 <input type = "text" id = "password" formControlName ="password">
             </div>

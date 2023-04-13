@@ -57,6 +57,7 @@ export class Book {
                 const headerd = {
                     'Authorization':`Bearer ${tok}`,
                     'Access-Control-Allow-Headers':'Content-Type,Authorization',
+                    'Access-Control-Allow-Origin':'https://gentle-semifreddo-803079.netlify.app',
                     'Content-Type':'application/json'
                     }
                 const requestOption = {headers: new HttpHeaders(headerd)

@@ -65,3 +65,10 @@
         width:auto;
         height: 32px;
     }
+    .maximum{
+        display:block;
+        position: absolute;
+        top:27px;
+        left:135px;
+        font-size:14px;
+    }
