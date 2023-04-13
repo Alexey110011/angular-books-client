@@ -9,13 +9,13 @@ import { FormControl, FormGroup, Validators,FormBuilder } from "@angular/forms";
 })
 
 export class SigninComponent implements OnInit {
-    userEmail:string='';
-    userPassword:string=''
+    /*userEmail:string='';
+    userPassword:string=''*/
     formModel:FormGroup;
     formModel1:FormControl = new FormControl('');
     targetName:string=''
     targetEmail:string = ''
-    target:string='';
+    //target:string='';
     isTargetName:boolean = false
     isTargetEmail:boolean = false
     isTarget:boolean=false
@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
     forbiddenEmail:string=''
     regexpName:boolean=false
     regexpEmail:boolean=false
+    formNotCompleted:boolean= true
     
    checkInput(value:string)
     {console.log(value)
@@ -50,8 +51,8 @@ export class SigninComponent implements OnInit {
         this.authService.register(this.formModel.value)
         if(this.authService.isAuthenticated()){
             this.router.navigate([this.returnUrl]) }
-        } else{
-            alert("something wrong!")
+        } else {
+            this.formNotCompleted = false;
         }
     }    
 
@@ -77,7 +78,8 @@ export class SigninComponent implements OnInit {
             else{this.regexpName = false;
             this.forbiddenName=''}
         },
-        error:error=>console.log(error)
+        error:error=>console.log(error),
+        complete:()=>console.log('Done')
     })
 }
     checkingRegExpEmail(){
@@ -91,7 +93,8 @@ export class SigninComponent implements OnInit {
             else{this.regexpEmail = false
             this.forbiddenEmail=''}
         },
-        error:error=>console.log(error)
+        error:error=>console.log(error),
+        complete:()=>console.log('Done')
     })
     }
 
@@ -104,7 +107,8 @@ export class SigninComponent implements OnInit {
             this.regexpName=true}
             else{this.regexpName = false}
         },
-        error:error=>console.log(error)
+        error:error=>console.log(error),
+        complete:()=>console.log('Done')
     })
 }
 

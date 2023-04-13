@@ -1,10 +1,10 @@
 <div class = "row" >
     <div class = "signup_wrapper">
         <p class = "lead">
-            <span class ="signup_header">Already a member? Please, <a style = "color:blue" href = "/#login">log in</a></span>
+            <span class ="signup_header">Already a member? Please, <a href = "/#login">log in</a></span>
         </p>
         <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
-            <div class = "form-group">
+            <div class = "form-group form_group">
                 <label for = "name">Name</label>
                 <input type = "text" id = "name" formControlName ="name" required [(ngModel)] = "targetName" (input) = "checkingRegExpName()"(blur)="checkUserByName()">
             </div>
@@ -13,7 +13,7 @@
                     <div *ngIf = "this.regexpName" class  ="alert_span">Name <b>{{targetName}}</b>  is already exists</div>
                     <div *ngIf = "!this.regexpName" class = "success_span">Name <b>{{targetName}}</b> is available</div>
                 </div>
-            <div class = "form-group">
+            <div class = "form-group form_group">
                 <label for = "email">Email</label>
                 <input type = "text" id = "email" formControlName ="email" required [(ngModel)] = "targetEmail" (input) = "checkingRegExpEmail()"(blur)="checkUserByEmail()">
             </div>
@@ -22,12 +22,13 @@
                 <div *ngIf = "this.regexpEmail" class  ="alert_span">Email <b>{{targetEmail}}</b>  is already exists</div>
                 <div *ngIf = "!this.regexpEmail" class = "success_span">Email <b>{{targetEmail}}</b> is available</div>
                 </div>
-            <div class = "form-group">
+            <div class = "form-group form_group">
                 <label for = "password">Password</label>
                 <input type = "text" id = "password" formControlName ="password">
             </div>
-                <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert alert-danger">Fill the field</div>
-            <input type = "submit" value = "Submit" class = "btn btn-primary submit_btn">
+                <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert_span">Fill the field</div>
+                <div *ngIf = "!formNotCompleted" style = "justify-content: center;">Complete the form</div>
+                <input type = "submit" value = "Submit" class = "btn btn-primary submit_btn">
         </form>
     </div>
 </div>

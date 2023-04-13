@@ -15,7 +15,6 @@ constructor(){}
     onNextClick(){
         const next = this.currentSlide+1 
         this.currentSlide = next===this.frontend.length-1?0:next
-
     }
 
     ngOnInit(): void {

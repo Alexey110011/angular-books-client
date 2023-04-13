@@ -141,7 +141,6 @@ border-bottom:1px solid white;
     margin-left:100px
 }
 
-
 .navbar-wrapper{
     position:fixed;
     z-index:4;
@@ -213,7 +212,6 @@ border-bottom:1px solid white;
 .search:nth-child(2){
     display: flex;
     justify-content:space-between
-
 }
 
 .vis{
@@ -254,7 +252,8 @@ border-bottom:1px solid white;
     font-size: 12px;
 }
 .login{
-    top:-10px
+    top:-10px;
+    left:-30px
 }
 .alert_span{
     color:rgb(233,46,71);

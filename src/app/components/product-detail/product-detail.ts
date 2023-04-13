@@ -41,21 +41,22 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
     this.bookId =  route.snapshot.params['bookId']
     this.formModel = new FormGroup({
         'rating':new FormControl('', Validators.minLength(1)),
-        'reviewtext':new FormControl('', [Validators.required, Validators.maxLength(20)])//,
-        
+        'reviewtext':new FormControl('', [Validators.required, Validators.maxLength(500)])//,
     }) 
 
     console.log(this.bookId)
         bookService.getProductById(this.bookId)
         .subscribe(
             {next:book=>{this.book = book; console.log(this.book)},
-            error:error=>console.log(error)}
+            error:error=>console.log(error),
+            complete:()=>console.log('Done')}
         )
 
         this.bookService.getReviewsForBook(this.bookId)
         .subscribe(
             {next:reviews=>this.reviews = reviews,
-             error:error=>console.log(error)}
+             error:error=>console.log(error),
+             complete:()=>console.log('Done')}
         )
     }
 
@@ -73,11 +74,14 @@ constructor(route:ActivatedRoute, private bookService:BookService, private authS
         this.reviewtext= this.formModel.value.reviewtext
         this.createdOn = new Date()
         this.bookService.addReviewsToDb(this.bookid,this.formModel.value, this.rating)
-            .subscribe(value=>{this.reviews.push(value[0]);console.log(value,this.reviews.length);
+            .subscribe({next:value=>{this.reviews.push(value[0]);console.log(value,this.reviews.length);
                 this.book.rating = this.averageRating(this.reviews)
                 console.log('This book rating',this.reviews.length,this.book.rating, this.rating)
                 this.bookService.updateRating(this.bookid,this.book.rating) 
-            })
+                    },
+                    error:error=>console.error(error),
+                    complete:()=>console.log('Done')})
+
             this.resetForm() 
     }
    

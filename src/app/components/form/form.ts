@@ -39,6 +39,7 @@ onSubmit(){
         value=>console.log(value))
         this.rest = 500
         this.router.navigate(['/'])
+        this.formModel.reset()
         } else {
     this.formNotCompleted = false;
     }
