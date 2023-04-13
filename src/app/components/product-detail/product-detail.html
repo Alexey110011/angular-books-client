@@ -67,7 +67,7 @@
     <div class='col-md-12'>
       <rating-stars [rating] = "review.rating"></rating-stars>
       <span class = "pull-right">
-        {{review.createdOn | date:'shortDate'}}
+        {{review.createdon}}
       </span>
       <p> {{review.reviewtext}}</p>
       <span class = "descript">{{review.author}}</span>

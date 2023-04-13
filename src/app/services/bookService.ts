@@ -23,7 +23,7 @@ export class Book {
            public author:string,
            public rating:number,
            public reviewtext:string,
-           public createdOn:Date){}
+           public createdon:Date){}
     }
     @Injectable({
     providedIn:"root"
@@ -57,7 +57,6 @@ export class Book {
                 const headerd = {
                     'Authorization':`Bearer ${tok}`,
                     'Access-Control-Allow-Headers':'Content-Type,Authorization',
-                    'Access-Control-Allow-Origin':'https://gentle-semifreddo-803079.netlify.app',
                     'Content-Type':'application/json'
                     }
                 const requestOption = {headers: new HttpHeaders(headerd)
