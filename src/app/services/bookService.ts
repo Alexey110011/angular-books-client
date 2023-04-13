@@ -56,12 +56,12 @@ export class Book {
                 const tok = this.authService.getToken()
                 const headerd = {
                     'Authorization':`Bearer ${tok}`,
-                    'Access-Control-Allow-Headers':'Content-Type',
+                    'Access-Control-Allow-Headers':'Content-Type,Authorization',
                     'Content-Type':'application/json'
                     }
                 const requestOption = {headers: new HttpHeaders(headerd)
                     }
-                return this.http.post<Review[]>(`https://activities-server-db.herokuapp.com/products/${bookId}/addReview`, /*{*/value/*,rating:rating}*/, requestOption/* ,{responseType:'json'}*/)
+                return this.http.post<Review[]>(`https://activities-server-db.herokuapp.com/products/${bookId}/addReview`, value/*,rating:rating}*/, requestOption/* ,{responseType:'json'}*/)
             }
 
                 updateRating(bookId:string, rating:number){

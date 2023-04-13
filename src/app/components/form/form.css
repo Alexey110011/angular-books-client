@@ -3,7 +3,9 @@
     position:relative;
     top:60px;
     box-shadow:4px 5px 5px  gray;
-    background-color: lightgray;
+    margin:0 auto;
+    border-top:2px solid blue;
+    border-left:2px solid blue;
     }
     .form-group{
         display:flex;
@@ -18,7 +20,7 @@
         padding:8px 20px;
         position: relative;
         top:15px;
-        margin-bottom:4px;
+        margin-bottom:14px;
     }
     
     .forms div label{
@@ -34,7 +36,7 @@
         text-align: center;
         margin: 5px auto;
     }
-    .forms input, .forms select{
+   .forms select{
         width:178px;
         outline: none;
     }
@@ -51,13 +53,15 @@
     }
     .pos30{
         position:absolute;
-        top:30px
+        top:30px;
+        left:0px;
+        font-size: 14px;
     }
     .forms input:not([type="radio"]){ 
         width:178px;
-        height:24px
+        height:27px
     }
-    .forms input:not([type="submit"]) {
-        width:178px;
-        height: 24px;
+    .forms input[type="submit"] {
+        width:auto;
+        height: 32px;
     }

@@ -27,7 +27,7 @@
                 <input type = "text" id = "password" formControlName ="password">
             </div>
                 <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert alert-danger">Fill the field</div>
-            <input type = "submit" style = "margin:10px 125px 10px" value = "Submit" class = "btn btn-primary">
+            <input type = "submit" value = "Submit" class = "btn btn-primary submit_btn">
         </form>
     </div>
 </div>
