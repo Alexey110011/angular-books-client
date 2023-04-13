@@ -30,6 +30,7 @@
     <div>
         <label for = "pictureUrl"> PictureUrl</label>
         <input type = "text" formControlName="pictureUrl" id ="pictureUrl"placeholder  = "https://...">
+        <span  *ngIf = "this.formModel.value.pictureUrl&&this.formModel.value.pictureUrl.length>150" class ="alert_span" style = "display:block;position: absolute;top:22px;left:140px;font-size:14px;">Maximum length exceeded</span>
     </div>
     <div>
         <label for = "price"> Price</label>
