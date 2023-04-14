@@ -1,7 +1,7 @@
     <div class = "row">
         <div class="log_wrapper">
             <div class = "lead">
-                <span class="log_header">Pease, log in  or <a style = "color:blue" href = "/signin"> sign up</a></span>
+                <span class="log_header">Pease, log in  or <a style = "color:blue" [routerLink] = '["/signin"]'> sign up</a></span>
             </div>
             <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
                 <div *ngIf = "notAuthenticated" class = "alert_span login">Some problems occured with authentication.<br/>Check email or password; or sign up</div>

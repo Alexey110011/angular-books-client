@@ -43,7 +43,11 @@ export class AuthService{
                 {next:value=>{this.token = value.token;console.log(this.token);
                 this.saveToken(this.token);
                 console.log(window.atob(this.token.split('.')[1]));
-                },              
+                this.returnUrl = this.route.snapshot.queryParams['returnUrl']
+                if(this.returnUrl){
+                    this.router.navigate([this.returnUrl])
+                }else{
+                    this.router.navigate([""])}},              
                 error:error=>{console.log(error)}
             });
         }

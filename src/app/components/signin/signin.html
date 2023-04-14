@@ -1,7 +1,7 @@
 <div class = "row" >
     <div class = "signup_wrapper">
         <p class = "lead">
-            <span class ="signup_header">Already a member? Please, <a href = "/#login">log in</a></span>
+            <span class ="signup_header">Already a member? Please, <a [routerLink] = '["/login"]'>log in</a></span>
         </p>
         <form [formGroup] = "formModel" method = "POST" (ngSubmit)="onSubmit()">
             <div class = "form-group form_group">
