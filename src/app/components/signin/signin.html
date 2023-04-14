@@ -27,7 +27,7 @@
                 <input type = "text" id = "password" formControlName ="password">
             </div>
                 <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert_span">Fill the field</div>
-                <div *ngIf = "!formNotCompleted" style = "justify-content: center;">Complete the form</div>
+                <div *ngIf = "!formNotCompleted" style = "margin:0 auto">Complete the form</div>
                 <input type = "submit" value = "Submit" class = "btn btn-primary submit_btn">
         </form>
     </div>
