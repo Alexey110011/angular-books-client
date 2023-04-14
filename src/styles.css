@@ -183,6 +183,7 @@ border-bottom:1px solid white;
     display:block;
     color:rgb(103, 31, 175);
     text-align: center;
+    margin-top:10px
 }
 .signup_wrapper{
     z-index:3;
@@ -254,7 +255,7 @@ border-bottom:1px solid white;
 .login{
     position:relative;
     top:-10px;
-    left:60px;
+    left:45px;
 }
 .alert_span{
     color:rgb(233,46,71);
