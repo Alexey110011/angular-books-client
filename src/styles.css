@@ -263,6 +263,9 @@ border-bottom:1px solid white;
 .success_span{
     color:green
 }
+.center{
+    text-align: center;
+}
 .pad{
     padding-right: 20px
 

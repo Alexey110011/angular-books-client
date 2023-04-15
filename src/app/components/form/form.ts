@@ -38,6 +38,8 @@ onSubmit(){
         this.bookService.addBookToDb(this.formModel.value).subscribe(
         value=>console.log(value))
         this.rest = 500
+        this.bookService.addBookToDb().subscribe(
+            value=> conaole.log(value))
         this.router.navigate(['/'])
         this.formModel.reset()
         } else {

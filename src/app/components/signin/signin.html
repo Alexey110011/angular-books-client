@@ -8,7 +8,7 @@
                 <label for = "name">Name</label>
                 <input type = "text" id = "name" formControlName ="name" required [(ngModel)] = "targetName" (input) = "checkingRegExpName()"(blur)="checkUserByName()">
             </div>
-            <div *ngIf = "this.formModel.controls['name'].touched&&this.formModel.controls['name'].errors?.['required']" class = "alert_span">Fill the field</div>
+            <div *ngIf = "this.formModel.controls['name'].touched&&this.formModel.controls['name'].errors?.['required']" class = "alert_span center">Fill the field</div>
                 <div *ngIf="this.isTargetName">
                     <div *ngIf = "this.regexpName" class  ="alert_span">Name <b>{{targetName}}</b>  is already exists</div>
                     <div *ngIf = "!this.regexpName" class = "success_span">Name <b>{{targetName}}</b> is available</div>
@@ -17,7 +17,7 @@
                 <label for = "email">Email</label>
                 <input type = "text" id = "email" formControlName ="email" required [(ngModel)] = "targetEmail" (input) = "checkingRegExpEmail()"(blur)="checkUserByEmail()">
             </div>
-            <div *ngIf = "this.formModel.controls['email'].touched&&this.formModel.controls['email'].errors?.['required']" class = "alert_span">Fill the field</div>
+            <div *ngIf = "this.formModel.controls['email'].touched&&this.formModel.controls['email'].errors?.['required']" class = "alert_span center">Fill the field</div>
             <div *ngIf="this.isTargetEmail">
                 <div *ngIf = "this.regexpEmail" class  ="alert_span">Email <b>{{targetEmail}}</b>  is already exists</div>
                 <div *ngIf = "!this.regexpEmail" class = "success_span">Email <b>{{targetEmail}}</b> is available</div>
@@ -26,7 +26,7 @@
                 <label for = "password">Password</label>
                 <input type = "text" id = "password" formControlName ="password">
             </div>
-                <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert_span">Fill the field</div>
+                <div *ngIf = "this.formModel.controls['password'].touched&&this.formModel.controls['password'].errors?.['required']" class = "alert_span center">Fill the field</div>
                 <div *ngIf = "!formNotCompleted" class = "complete">Complete the form</div>
                 <input type = "submit" value = "Submit" class = "btn btn-primary submit_btn">
         </form>
