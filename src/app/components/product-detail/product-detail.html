@@ -17,17 +17,19 @@
         </div>
         <div class ="descript_">{{book.description}}</div>
     </div>
-    <div *ngIf = "book.shop1" class = "thumbnail shop">
-      <div >{{book.shop1}}</div>
-      <div *ngIf = "book.shop1image">
-        <img src = "{{book.shop1image}}" width  = "110" height="150"/>
+    <div *ngIf = "book.shop1" class = "shop_wrapper"> 
+      <div *ngIf = "book.shop1" class = "thumbnail shop">
+        <div >{{book.shop1}}</div>
+        <div *ngIf = "book.shop1image">
+          <img src = "{{book.shop1image}}" width  = "110" height="150"/>
+        </div>
+      </div>
+      <div *ngIf = "book.shop2" class= "thumbnail shop">
+        <div >{{book.shop2}}</div>
+        <div *ngIf = "book.shop2image">
+          <img src = "{{book.shop2image}}" width  = "110" height="150"/>
       </div>
     </div>
-    <div *ngIf = "book.shop2" class= "thumbnail shop">
-      <div >{{book.shop2}}</div>
-      <div *ngIf = "book.shop2image">
-        <img src = "{{book.shop2image}}" width  = "110" height="150"/>
-      </div>
 </div>
      
   <div>
