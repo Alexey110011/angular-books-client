@@ -22,7 +22,8 @@
 }
 .thumbnail.shop {
     width:280px;
-    height:fit-content
+    height:fit-content;
+    margin-right:15px;
 }
 .shop_wrapper{
     display:flex;
