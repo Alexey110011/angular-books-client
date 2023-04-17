@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core'
 export default class BackendComponent implements OnInit{
 
 @Input() backend:any[]=[]
-currentSlide:number = -1  
+currentSlide:number = 0
 
 constructor(){}
     onNextClick(){
