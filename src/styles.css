@@ -29,7 +29,14 @@
     font-size: 16px;
     flex:0 0 150px
     }
-
+    .thumbnail.shop {
+        flex:0 0 300px;
+        height:fit-content
+    }
+    .shop_wrapper{
+        display:flex;
+        flex-flow: row;
+    }
 .item_wrapper{
     width:250px;
     padding-left:10px;
