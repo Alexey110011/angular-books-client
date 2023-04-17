@@ -1,79 +1,79 @@
-<div *ngIf = "book" [ngClass] = "isReviewHidden?'book':'faded'">
-    <div class ="head">
-        <p >{{book.authors}}</p>
-        <h4>{{book.title}}</h4>
-    </div>
-    <div class = "inner">
-        <div class = "image">
-            <img src ='{{book.pictureurl}}' width = "210px" height='300'>
-        </div>
-        <div class = "description">
-            <div class ="stars_wrapper" >
-               <rating-stars [rating] = 'book.rating' class = "stars"></rating-stars> 
-            </div>
-            <div>Category: <span class = 'badge'>{{book.category}}</span></div>
-            <div>Year: {{book.year}}</div>
-            <div><b>Price: BYN {{book.price}}</b></div>
-        </div>
-        <div class ="descript_">{{book.description}}</div>
-    </div>
-    <div *ngIf = "book.shop1" class = "shop_wrapper"> 
-      <div *ngIf = "book.shop1" class = "thumbnail shop">
+<diV *ngIf = "book" [ngClass] = "isReviewHidden?'book':'faded'">
+  <div class ="head">
+      <p >{{book.authors}}</p>
+      <h4>{{book.title}}</h4>
+  </div>
+  <div class = "inner">
+      <div class = "image">
+          <img src ='{{book.pictureurl}}' width = "210px" height='300'>
+      </div>
+      <div class = "description">
+          <div class ="stars_wrapper" >
+             <rating-stars [rating] = 'book.rating' class = "stars"></rating-stars> 
+          </div>
+          <div>Category: <span class = 'badge'>{{book.category}}</span></div>
+          <div>Year: {{book.year}}</div>
+          <div><b>Price: BYN {{book.price}}</b></div>
+      </div> 
+      <div class ="descript_">{{book.description}}</div>
+  </div>
+
+  <div *ngIf = "book.shop1" style ="display:flex; flex-wrap:wrap">
+    <div *ngIf = "book.shop1" class = "thumbnail shop">
         <div >{{book.shop1}}</div>
         <div *ngIf = "book.shop1image">
           <img src = "{{book.shop1image}}" width  = "110" height="150"/>
         </div>
-      </div>
-      <div *ngIf = "book.shop2" class= "thumbnail shop">
+    </div>
+    <div *ngIf = "book.shop2" class= "thumbnail shop">
         <div >{{book.shop2}}</div>
         <div *ngIf = "book.shop2image">
           <img src = "{{book.shop2image}}" width  = "110" height="150"/>
-      </div>
+        </div>
+    </div>
+  </div>
+
+<div>
+  <button (click) = "leaveAReview()" class="btn btn-success btn-green">Leave a review</button> <span>  {{reviews.length}} review(s)</span>
+  <div [hidden] = "isReviewHidden" class = "col-xs-12 col-lg-6" style="position:absolute; top:0px;left:-10px;background-color:transparent; height:100%;width:100vw;z-index:2;opacity:1">
+    <div class = 'col-xs-10 col-sm-8 col-lg-2' style = "position: absolute;top:100px; left:10%;background-color:blue;opacity:1;z-index:5">
+      <div class = "modal-header">
+          <button (click) ="isReviewHidden=!isReviewHidden" type = "button" class = "close">
+          <span aria-hidden = "true" style = "color:red">x</span>
+          <span class ="sr-only">Close</span>
+          </button>
+          <h4 id = "modalLabel" class = "modal-title" style = "color:white">Add your review for {{book.title}}</h4>
+      </div><form [formGroup] = "formModel" (submit) = "addReview();form_add .resetForm()" #form_add = "ngForm">
+        <div>
+          <input [hidden] ="true" class = "col-xs-4 col-sm-4 col-md-4" style = "border-radius: 5px" type= "number" id ="rating" name = "rating" formControlName ="rating" [(ngModel)] = "rating">
+          <span [hidden]  = "!formModel.hasError('minLength', 'minLength')">Enter requires</span>
+        </div>
+        <div>
+            <rating-stars [(rating)] = "newRating" (ratingChange) = ratinChange($event) [readonly] = "false" class = "large" style = "color:rgb(204, 233, 73)" ></rating-stars>
+        </div>
+        <div>
+          <textarea class = "form-control col-xs-10 col-sm-6" id = "review" formControlName = "reviewtext" rows ="10" required (input) = "calculateLength()"></textarea>
+        </div>
+        <div *ngIf = "rest>0||rest==0" class = "alert alert-success"> Availible {{rest}} characters</div>
+        <div *ngIf = "rest<0" class = "alert alert-danger"> Maximum length reached</div>
+        <div class = "pull-right">
+          <button type = "submit" class="btn btn-success btn-green" [disabled] = "!this.formModel.valid">Add review</button>
+        </div>
+      </form>
+      
     </div>
 </div>
-     
-  <div>
-    <button (click) = "leaveAReview()" class="btn btn-success btn-green">Leave a review</button> <span>  {{reviews.length}} review(s)</span>
-    <div [hidden] = "isReviewHidden" class = "col-xs-12 col-lg-6" style="position:absolute; top:0px;left:-10px;background-color:transparent; height:100%;width:100vw;z-index:2;opacity:1">
-      <div class = 'col-xs-10 col-sm-8 col-lg-2' style = "position: absolute;top:100px; left:10%;background-color:blue;opacity:1;z-index:5">
-        <div class = "modal-header">
-            <button (click) ="isReviewHidden=!isReviewHidden" type = "button" class = "close">
-            <span aria-hidden = "true" style = "color:red">x</span>
-            <span class ="sr-only">Close</span>
-            </button>
-            <h4 id = "modalLabel" class = "modal-title" style = "color:white">Add your review for {{book.title}}</h4>
-        </div><form [formGroup] = "formModel" (submit) = "addReview();form_add.resetForm()" #form_add = "ngForm">
-          <div>
-            <input [hidden] ="true" class = "col-xs-4 col-sm-4 col-md-4" style = "border-radius: 5px" type= "number" id ="rating" name = "rating" formControlName ="rating" [(ngModel)] = "rating">
-            <span [hidden]  = "!formModel.hasError('minLength', 'minLength')">Enter requires</span>
-          </div>
-          <div>
-              <rating-stars [(rating)] = "newRating" (ratingChange) = ratinChange($event) [readonly] = "false" class = "large" style = "color:rgb(204, 233, 73)" ></rating-stars>
-          </div>
-           <div>
-            <textarea class = "form-control col-xs-10 col-sm-6" id = "review" formControlName = "reviewtext" rows ="10" required (input) = "calculateLength()"></textarea>
-          </div>
-          <div *ngIf = "rest>0||rest==0" class = "alert alert-success"> Availible {{rest}} characters</div>
-          <div *ngIf = "rest<0" class = "alert alert-danger"> Maximum length reached</div>
-          <div class = "pull-right">
-            <button type = "submit" class="btn btn-success btn-green" [disabled] = "!this.formModel.valid">Add review</button>
-          </div>
-        </form>
-        
-      </div>
-  </div>
+
 </div>
 
 <div class = 'row '*ngFor = "let review of reviews">
-  <hr>
-    <div class='col-md-12'>
-      <rating-stars [rating] = "review.rating"></rating-stars>
-      <span class = "pull-right">
-        {{review.createdon}}
-      </span>
-      <p> {{review.reviewtext}}</p>
-      <span class = "descript">{{review.author}}</span>
-    </div> 
+<hr>
+  <div class='col-md-12'>
+    <rating-stars [rating] = "review.rating"></rating-stars>
+    <span class = "pull-right">
+      {{review.createdon}}
+    </span>
+    <p> {{review.reviewtext}}</p>
+    <span class = "descript">{{review.author}}</span>
+  </div> 
 </div>
-
-  
