@@ -20,7 +20,7 @@
     max-width: 500px;
     font-size: 0.7em;
 }
-.shop {
+.thumbnail .shop {
     flex:0 0 300px;
     height:fit-content
 }
