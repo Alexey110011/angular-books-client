@@ -5,7 +5,7 @@
 }
 .head{
     font-size: 17px; 
-    padding-top: 20px; 
+    padding-top: 25px; 
     margin-left: 10px;
 }
 .stars_wrapper{
@@ -21,11 +21,8 @@
     font-size: 0.7em;
 }
 .thumbnail.shop {
-    width:280px;
     height:fit-content;
-    margin-right:15px;
+    width:300px;
+    margin-right: 5px;
 }
-.shop_wrapper{
-    display:flex;
-    flex-wrap: wrap;
-}
+
