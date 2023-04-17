@@ -22,8 +22,6 @@
 }
 .shop {
     flex:0 0 300px;
-    background-color:gray; 
-    color:white;
     height:fit-content
 }
 .shop_wrapper{

@@ -8,6 +8,7 @@ import { AuthService } from "src/app/services/auth.service";
 @Component({
     selector:'product-page',
     templateUrl:"product-detail.html", 
+    styleUrls:['product-detail.css'],
     providers:[HomeComponent]
 })
 export default class BookDetailComponent{
