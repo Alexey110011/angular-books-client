@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style file */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/*@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @font-face{
     font-family:"regular1";
     src:url('../src/assets/fonts/Inter-Regular.ttf')
@@ -149,7 +149,7 @@ border-bottom:1px solid white;
 
 .navbar-wrapper{
     position:fixed;
-    top:0px;
+    top:100px;
     z-index:4;
     height:50px;
     background-color:rgb(79, 204, 63);
@@ -305,7 +305,7 @@ border-bottom:1px solid white;
 
 /*
 /* You can add global styles to this file, and also import other style file */
-/*@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/**/@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @font-face{
     font-family:"regular1";
     src:url('../src/assets/fonts/Inter-Regular.ttf')
@@ -609,4 +609,3 @@ border-bottom:1px solid white;
 }
 }
 
-*/
