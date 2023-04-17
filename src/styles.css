@@ -34,7 +34,8 @@
 
 .item_wrapper{
     padding-left:10px;
-    margin-bottom:20px
+    margin-bottom:20px;
+    width:250px
 }
 label {
     color:blueviolet}
