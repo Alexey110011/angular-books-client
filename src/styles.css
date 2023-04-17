@@ -29,17 +29,7 @@
     font-size: 16px;
     flex:0 0 150px
     }
-    .thumbnail.shop {
-        flex:0 0 300px;
-        height:fit-content;
-        margin-left:0;
-        margin-right:0
-    }
-    .shop_wrapper{
-        display:flex;
-        flex-flow: row;
-        justify-content:flex-start;
-    }
+       
 .item_wrapper{
     width:250px;
     padding-left:10px;
