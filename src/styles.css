@@ -409,8 +409,7 @@ border-bottom:1px solid white;
     .faded{
         background-color: rgba(54, 46, 46, 0.623);
         opacity:1;
-        height:100vh;    
-    }
+        }
 @keyframes menu_back{
     from{
         position: absolute;
@@ -452,7 +451,7 @@ border-bottom:1px solid white;
 }
 
 .navbar-wrapper{
-    position:relative;
+    position:fixed;
     z-index:4;
     height:50px;
     background-color:rgb(79, 204, 63);
