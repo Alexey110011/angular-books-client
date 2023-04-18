@@ -1,4 +1,4 @@
-<div>
+<div style = "position: relative;top:0">
     <nav class="navbar-wrapper" role="navigation">
       <div class ="logo">Book Shelf</div>
       <div class  = "search1"(click)="toggleSearchVisible()">
@@ -13,7 +13,7 @@
             <li><a [routerLink] = '["/forms"]'>Add book</a></li>
           </ul>
       </div>
-      <button type="button" class="short pull-right pad" (click)="toggleFunc()">
+      <button type="button" class="short" style = "position:absolute; right:10px;top:15px" (click)="toggleFunc()">
         <span class = "glyphicon glyphicon-menu-hamburger" style="font-size:18px; padding-top:5px"></span>
       </button>
     </nav>
