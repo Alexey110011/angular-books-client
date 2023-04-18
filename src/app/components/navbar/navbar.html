@@ -1,31 +1,31 @@
-<div style = "position: relative">
-  <nav class="navbar-wrapper" role="navigation">
-  <div class ="logo">Book Shelf</div>
-  <div class  = "search1"(click)="toggleSearchVisible()">
-    <span class ="glyphicon glyphicon-search">Search</span>
+<div style = "position: fixed;top:0;left:0">
+    <nav class="navbar-wrapper" role="navigation">
+      <div class ="logo">Book Shelf</div>
+      <div class  = "search1"(click)="toggleSearchVisible()">
+          <span class ="glyphicon glyphicon-search">Search</span>
+      </div>
+      <div>
+          <ul>
+            <li><a [routerLink] = '["/"]'>Home</a></li>
+            <li><a [routerLink]='["/about"]'>About</a></li>
+            <li><a [routerLink] =  '["/login"]'>Log in</a></li>
+            <li><a [routerLink] =  '["/signin"]'>Signin</a></li>
+            <li><a [routerLink] = '["/forms"]'>Add book</a></li>
+          </ul>
+      </div>
+      <button type="button" class="short pull-right pad" (click)="toggleFunc()">
+        <span class = "glyphicon glyphicon-menu-hamburger" style="font-size:18px; padding-top:5px"></span>
+      </button>
+    </nav>
+  <div [ngClass] = "isToggled?'isCollapsed':'isntCollapsed menu_back'"> 
+    <ul (click) ="isToggled=!isToggled">
+      <li><a [routerLink] = '["/"]'>Home</a></li>
+      <li><a [routerLink]='["/about"]'>About</a></li>
+      <li><a [routerLink] =  '["/login"]'>Log in</a></li>
+      <li><a [routerLink] =  '["/signin"]'>Signin</a></li>
+      <li><a [routerLink] = '["/forms"]'>Add book</a></li>
+  </ul>
   </div>
-  <div>
-      <ul>
-        <li><a [routerLink] = '["/"]'>Home</a></li>
-        <li><a [routerLink]='["/about"]'>About</a></li>
-        <li><a [routerLink] =  '["/login"]'>Log in</a></li>
-        <li><a [routerLink] =  '["/signin"]'>Signin</a></li>
-        <li><a [routerLink] = '["/forms"]'>Add book</a></li>
-    </ul>
-  </div>
-    <button type="button" class="short pull-right pad" (click)="toggleFunc()">
-      <span class = "glyphicon glyphicon-menu-hamburger" style="font-size:18px; padding-top:5px"></span>
-    </button>
-</nav>
-<div [ngClass] = "isToggled?'isCollapsed':'isntCollapsed menu_back'"> 
-  <ul (click) ="isToggled=!isToggled">
-  <li><a [routerLink] = '["/"]'>Home</a></li>
-  <li><a [routerLink]='["/about"]'>About</a></li>
-  <li><a [routerLink] =  '["/login"]'>Log in</a></li>
-  <li><a [routerLink] =  '["/signin"]'>Signin</a></li>
-  <li><a [routerLink] = '["/forms"]'>Add book</a></li>
-</ul>
-</div>
 </div>
 
 
